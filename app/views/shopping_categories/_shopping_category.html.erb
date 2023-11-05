@@ -20,8 +20,8 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show this shopping category", shopping_category, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this shopping category", edit_shopping_category_path(shopping_category), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Show", shopping_category, class: "btn-secondary inline-block" %>
+    <%= link_to "Edit", edit_shopping_category_path(shopping_category), class: "btn-secondary inline-block" %>
     <hr class="mt-6">
   <% end %>
 </div>

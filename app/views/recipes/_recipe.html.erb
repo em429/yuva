@@ -11,7 +11,7 @@
 
 <p class="my-5">
   <strong class="block font-medium mb-1">Recipe Items:</strong>
-  <ul>
+  <ul class="list-disc pl-5">
     <% recipe.recipe_items.each do |item| %>
       <li><%= item.shopping_item.title %></li>
     <% end %>
@@ -20,8 +20,8 @@
   
 
   <% if action_name != "show" %>
-    <%= link_to "Show this recipe", recipe, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this recipe", edit_recipe_path(recipe), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Show this recipe", recipe, class: "btn-secondary inline-block " %>
+    <%= link_to "Edit this recipe", edit_recipe_path(recipe), class: "btn-secondary inline-block" %>
     <hr class="mt-6">
   <% end %>
 </div>
