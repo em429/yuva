@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_04_231521) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_05_154051) do
+  create_table "recipe_items", force: :cascade do |t|
+    t.integer "recipe_id", null: false
+    t.integer "shopping_item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_recipe_items_on_recipe_id"
+    t.index ["shopping_item_id"], name: "index_recipe_items_on_shopping_item_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "title", limit: 30
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_recipes_on_title", unique: true
+  end
+
   create_table "shopping_categories", force: :cascade do |t|
     t.string "title", limit: 20
     t.string "color", default: "white"
@@ -34,5 +51,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_04_231521) do
     t.index ["title"], name: "index_shopping_items_on_title", unique: true
   end
 
+  add_foreign_key "recipe_items", "recipes"
+  add_foreign_key "recipe_items", "shopping_items"
   add_foreign_key "shopping_items", "shopping_categories"
 end

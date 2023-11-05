@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :recipes
   get 'dashboard', to: 'dashboard#index'
 
   resources :shopping_items do
