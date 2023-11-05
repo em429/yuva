@@ -1,7 +1,7 @@
 <div id="shopping-items-<%= category.id %>" class="flex flex-wrap gap-2">
     <% category.shopping_items.sort_by(&:importance).each do |item| %>
 
-        <div class="smallcaps p-2 border text-center <%= item.stock == 0 ? 'border-red-200 bg-red-50' : 'border-green-300 bg-green-50' %> ">
+        <div class="grow smallcaps p-2 border text-center <%= item.stock == 0 ? 'border-red-200 bg-red-50' : 'border-green-300 bg-green-50' %> ">
             <%= link_to item.title, item %>
             <span class="text-xs text-black/40"><%= item.stock %>  <%= item.unit %></span>
 
