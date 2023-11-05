@@ -1,0 +1,2 @@
+module ShoppingCategoriesHelper
+end

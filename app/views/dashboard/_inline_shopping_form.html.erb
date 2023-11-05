@@ -1,0 +1,37 @@
+
+<div data-add-item-target="form" id="form-<%= category.id %>" 
+class="<%= 'hidden' if hide_form %> my-2">
+    <%= form_with(model: item, url: shopping_items_path, method: :post) do |form| %>
+    <%= form.hidden_field :shopping_category_id, value: category.id %>
+    <div class="flex mb-2 justify-between">
+        <div class="flex">
+            <div class="w-2/5 mr-2">
+            <%= form.label :title, class: "text-xs" %>
+            <%= form.text_field :title, class: "field w-full text-xs" %>
+            </div>
+            <div class="w-1/5">
+            <%= form.label :stock, class: "text-xs" %>
+            <%= form.number_field :stock, class: "field w-full text-xs" %>
+            </div>
+            <div class="w-1/5 ml-2">
+            <%= form.label :importance, class: "text-xs" %>
+            <%= form.number_field :importance, class: "field w-full text-xs" %>
+            </div>
+            <div class="w-1/5 ml-2">
+            <%= form.label :unit, class: "text-xs" %>
+            <%= form.text_field :unit, class: "field w-full text-xs" %>
+            </div>
+        </div>
+
+        <div class="mt-6 ml-2">
+            <%= form.submit "Add", class: "btn-primary text-xs" %>
+        </div>
+
+    </div>
+    <div class="w-full">
+        <%= form.label :notes, class: "text-xs" %>
+        <%= form.text_area :notes, class: "field w-full text-xs" %>
+    </div>
+
+    <% end %>
+</div>

@@ -1,0 +1,15 @@
+<div id="shopping-items-<%= category.id %>" class="flex flex-wrap gap-2">
+    <% category.shopping_items.sort_by(&:importance).each do |item| %>
+
+        <div class="smallcaps p-2 border text-center <%= item.stock == 0 ? 'border-red-200 bg-red-50' : 'border-green-300 bg-green-50' %> ">
+            <%= link_to item.title, item %>
+            <span class="text-xs text-black/40"><%= item.stock %>  <%= item.unit %></span>
+
+            <div class="flex mx-auto max-w-fit">
+                <%= button_to '-', decrement_shopping_item_path(item), method: :post, class: "text-xl px-2" %>
+                <%= button_to '+', increment_shopping_item_path(item), method: :post, class: "text-xl px-2" %>
+            </div>
+        </div>
+
+    <% end %>   
+</div>

@@ -1,0 +1,27 @@
+<div id="<%= dom_id shopping_category %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= shopping_category.title %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Color:</strong>
+    <%= shopping_category.color %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Notes:</strong>
+    <%= shopping_category.notes %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Importance:</strong>
+    <%= shopping_category.importance %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this shopping category", shopping_category, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this shopping category", edit_shopping_category_path(shopping_category), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

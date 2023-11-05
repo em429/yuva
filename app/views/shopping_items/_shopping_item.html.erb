@@ -1,0 +1,47 @@
+<div id="<%= dom_id shopping_item %>" class="">
+
+  <div class="flex justify-between space-x-4">
+    <div class="flex space-x-4">
+      <p class="my-5">
+        <strong class="font-medium mb-1">Title:</strong>
+        <%= link_to shopping_item.title, shopping_item %>
+          
+      </p>
+
+      <p class="my-5">
+        <strong class="font-medium mb-1">Stock:</strong>
+        <%= shopping_item.stock %>
+      </p>
+
+      <p class="my-5">
+        <strong class="font-medium mb-1">Category:</strong>
+        <%= shopping_item.shopping_category_id %>
+      </p>
+
+      <p class="my-5">
+        <strong class="font-medium mb-1">Importance:</strong>
+        <%= shopping_item.importance %>
+      </p>
+
+      <p class="my-5">
+        <strong class="font-medium mb-1">Unit:</strong>
+        <%= shopping_item.unit %>
+      </p>
+    </div>
+
+    <% if action_name != "show" %>
+    <div class="my-5">
+      <%= link_to "Edit", edit_shopping_item_path(shopping_item), class: "" %>
+    </div>
+    <% end %>
+
+  </div>
+
+  <p class="my-5">
+    <strong class="font-medium mb-1">Notes:</strong>
+    <%= shopping_item.notes %>
+  </p>
+  <hr>
+
+
+</div>
