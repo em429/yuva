@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_05_154051) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_05_173827) do
   create_table "recipe_items", force: :cascade do |t|
     t.integer "recipe_id", null: false
     t.integer "shopping_item_id", null: false
@@ -26,6 +26,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_05_154051) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_recipes_on_title", unique: true
+  end
+
+  create_table "scratchpads", force: :cascade do |t|
+    t.text "contents"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "shopping_categories", force: :cascade do |t|
