@@ -5,9 +5,14 @@
             <%= link_to item.title, item %>
             <span class="text-xs text-black/40"><%= item.stock %>  <%= item.unit %></span>
 
-            <div class="flex mx-auto max-w-fit">
-                <%= button_to '-', decrement_shopping_item_path(item), method: :post, class: "text-xl px-2" %>
-                <%= button_to '+', increment_shopping_item_path(item), method: :post, class: "text-xl px-2" %>
+            <div class="flex items-center">
+                <div class="flex mx-auto max-w-fit">
+                    <%= button_to '-', decrement_shopping_item_path(item), method: :post, class: "text-xl px-2" %>
+                    <%= button_to '+', increment_shopping_item_path(item), method: :post, class: "text-xl px-2" %>
+                </div>
+                <% if item.notes.present? %>
+                    <%= link_to "N", item, class: "mr-[-7px] mb-[-7px] self-end bg-yellow-200 px-1 text-xs text-yellow-500 font-bold" %>
+                <% end %>
             </div>
         </div>
 
