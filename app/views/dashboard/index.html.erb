@@ -13,9 +13,10 @@
         <button data-action="click->add-item#toggleForm" data-category-id="<%= category.id %>">+ Add</button>
       </div>
       <hr class="mb-4">
-      <%= render partial: "dashboard/shopping_items_list", locals: { category: category } %>
       <%= render partial: "inline_shopping_form",
-          locals: { category: category, item: ShoppingItem.new, hide_form: true } %>
+        locals: { category: category, item: ShoppingItem.new, hide_form: true } %>
+      <%= render partial: "dashboard/shopping_items_list", locals: { category: category } %>
+
     </div>
     
   <% end %>
