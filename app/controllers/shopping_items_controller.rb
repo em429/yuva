@@ -14,7 +14,7 @@ class ShoppingItemsController < ApplicationController
     if @item.save
       redirect_to dashboard_path
     else
-      redirect_to dashboard_path, alert: "Stock is already at 0, can't be decremented further."
+      redirect_to dashboard_path, notice: "Stock is already at 0, can't be decremented further."
     end
   end
 
