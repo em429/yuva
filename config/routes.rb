@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       post 'decrement'
     end
   end
+  get 'search_shopping_items', to: 'shopping_items#search'
+
   resources :shopping_categories
 
   resource :scratchpad, only: [:update]

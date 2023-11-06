@@ -6,7 +6,7 @@ class ShoppingItemsController < ApplicationController
     @item.increment!(:stock)
     redirect_to dashboard_path
   end
-  
+
   def decrement
     @item = ShoppingItem.find(params[:id])
     #@item.decrement!(:stock)
@@ -15,6 +15,15 @@ class ShoppingItemsController < ApplicationController
       redirect_to dashboard_path
     else
       redirect_to dashboard_path, alert: "Stock is already at 0, can't be decremented further."
+    end
+  end
+
+  def search
+    @shopping_items = ShoppingItem.where("title LIKE ?", "%#{params[:q]}%")
+
+    respond_to do |format|
+      format.json
+      #format.html
     end
   end
 
@@ -35,7 +44,7 @@ class ShoppingItemsController < ApplicationController
   # GET /shopping_items/1/edit
   def edit
   end
-  
+
   # POST /shopping_items
   def create
     @shopping_item = ShoppingItem.new(shopping_item_params)
@@ -55,7 +64,7 @@ class ShoppingItemsController < ApplicationController
                                 partial: "dashboard/shopping_items_list",
                                 locals: { category: category })
           ]
-                                                            
+
         end
         format.html do
           redirect_to @shopping_item, notice: "Shopping item was successfully created."
