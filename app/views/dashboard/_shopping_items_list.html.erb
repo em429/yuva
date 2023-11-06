@@ -1,7 +1,7 @@
 <div id="shopping-items-<%= category.id %>" class="flex flex-wrap gap-2">
     <% category.shopping_items.sort_by(&:importance).each do |item| %>
 
-        <div class="grow smallcaps p-2 border text-center <%= item.stock == 0 ? 'border-red-200 bg-red-50' : 'border-green-300 bg-green-50' %> ">
+        <div class="grow smallcaps p-2 border text-center rounded-xl shadow hover:shadow-md  <%= item.stock == 0 ? 'border-stone-300 bg-stone-200/60 hover:shadow-stone-200' : 'hover:shadow-lime-200 border-lime-300 bg-lime-100/60' %> ">
             <%= link_to item.title, item %>
             <span class="text-xs text-black/40"><%= item.stock %>  <%= item.unit %></span>
 
@@ -11,7 +11,7 @@
                     <%= button_to '+', increment_shopping_item_path(item), method: :post, class: "text-xl px-2" %>
                 </div>
                 <% if item.notes.present? %>
-                    <%= link_to "N", item, class: "mr-[-7px] mb-[-7px] self-end bg-yellow-200 px-1 text-xs text-yellow-500 font-bold" %>
+                    <%= link_to "N", item, class: "px-1 self-end mr-[-8px] mb-[-8px] border border-yellow-300 rounded-br-xl bg-yellow-200 text-xs text-yellow-500 font-bold" %>
                 <% end %>
             </div>
         </div>
