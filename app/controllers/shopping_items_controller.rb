@@ -3,14 +3,14 @@ class ShoppingItemsController < ApplicationController
 
   def increment
     @item = ShoppingItem.find(params[:id])
-    @item.increment!(:stock)
+    @item.increment_stock
     redirect_to dashboard_path
   end
 
   def decrement
     @item = ShoppingItem.find(params[:id])
-    #@item.decrement!(:stock)
-    @item.stock -= 1
+
+    @item.decrement_stock
     if @item.save
       redirect_to dashboard_path
     else

@@ -7,4 +7,26 @@ class ShoppingItem < ApplicationRecord
   validates :title, presence: true
 
   scope :cooking_ingredients, -> { where(shopping_category_id: 1) }
+
+  # If unit is db (piece), increment and decrement by 1. Otherwise by 0.5
+  def increment_stock
+    case self.unit
+      when 'db'
+        self.stock += 1
+      else
+        self.stock += 0.5
+    end
+    self.save
+  end
+
+  def decrement_stock
+    case self.unit
+      when 'db'
+        self.stock -= 1
+      else
+        self.stock -= 0.5
+    end
+    self.save
+  end
+
 end
