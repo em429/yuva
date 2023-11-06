@@ -1,11 +1,18 @@
 <div>
+
+  <% if flash[:danger].present? %>
+    <div class="flash_danger">
+      <%= flash[:danger] %>
+    </div> 
+  <% end %>
+
   <h1 class="font-bold text-4xl">Passcode protected page</h1>
 
   <%= form_with url: login_path, local: true do |form| %>
     <div>
       <div class="mt-4 max-w-md">
         <%= form.label :password, class:'sr-only' %> 
-        <%= form.password_field :password, placeholder: "enter passcode", class: 'field inline-block' %>
+        <%= form.password_field :password, placeholder: "enter passcode", value: @password, class: 'field inline-block' %>
         <%= form.submit "Unlock", class: 'mt-4 btn-primary inline-block' %>
       </div>
     </div>

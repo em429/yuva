@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       redirect_to dashboard_path
     else
       flash.now[:danger] = 'Invalid passcode'
-      render 'new'
+      render :new, status: :unprocessable_entity
     end
   end
 
