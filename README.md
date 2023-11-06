@@ -1,24 +1,19 @@
-# README
+# yuva - shopping and recipes tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Before use, two things must be setup in the `rails console`:
 
-Things you may want to cover:
+Create the scratchpad:
 
-* Ruby version
+```ruby
+Scratchpad.create
+```
+This is a single user application, but requires a passcode. Only the first passcode in the db will work! Here's how to create it:
 
-* System dependencies
+```ruby
+Passcode.create(password: 'secret')
+```
 
-* Configuration
+### Recipes
 
-* Database creation
+For now, the category with id=1 (the first we add) must be the cooking ingredients one, because when adding recipes, the multi-select filters for those items only -- just so we don't end up with detergent on our pizza.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
