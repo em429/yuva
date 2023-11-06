@@ -23,14 +23,8 @@
 
 
   <div class="my-5 shadow rounded-md" data-controller="multiselect" data-multiselect-search-url-value="/search_shopping_items" data-placeholder="Search for items...">
-    <select multiple="multiple" class="!focus:ring-0 focus:border-current multiselect__hidden" data-multiselect-target="hidden" name="shopping_items[]" id="shopping_item_ids"></select>
+    <select multiple="multiple" class="multiselect__hidden" data-multiselect-target="hidden" name="shopping_items[]" id="shopping_item_ids"></select>
   </div>
-
-  <%# <div class="my-5"> %>
-    <%# <%= form.label :shopping_items %>
-    <%# <%= form.collection_select :shopping_item_ids, ShoppingItem.cooking_ingredients,  %>
-    <%# :id, :title, {}, { multiple: true, class: "field w-full" } %>
-  <%# </div> %>
 
   <div class="inline">
     <%= form.submit class: "btn-primary cursor-pointer" %>
