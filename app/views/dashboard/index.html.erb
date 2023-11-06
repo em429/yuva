@@ -10,7 +10,7 @@
     <div data-controller="add-item toggle-item-list"  class="mt-6">
       <div class="flex justify-between space-x-2">
         <h2 data-action="click->toggle-item-list#toggleList" 
-        class="text-2xl font-bold mb-4 cursor-pointer"><%= category.title %></h2>
+        class="text-xl font-bold mb-4 cursor-pointer"><%= category.title %></h2>
         <button data-action="click->add-item#toggleForm" data-category-id="<%= category.id %>">+ Add</button>
       </div>
       <hr class="mb-4">

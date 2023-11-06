@@ -11,17 +11,17 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-gradient-to-b from-stone-50 to-lime-100/60 min-h-screen">
     <div class="px-5 mt-4 max-w-[600px] mx-auto">
       <header class="flex justify-between">
-        <div class="space-x-2">
+        <div class="space-x-2 text-sm">
           <%= link_to "Dashboard", dashboard_path %>
           <%= link_to "Items", shopping_items_path %>
           <%= link_to "Categories", shopping_categories_path %>
           <%= link_to "Recipes", recipes_path %>
         </div>
         <% if session[:passcode_id] %>
-          <%= button_to 'Logout', logout_path, method: :delete %>
+          <%= button_to 'Logout', logout_path, method: :delete, class: "text-sm" %>
         <% end %>
 
       </header>
