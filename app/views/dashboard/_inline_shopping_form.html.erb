@@ -14,12 +14,12 @@ class="<%= 'hidden' if hide_form %> my-2">
             <%= form.number_field :stock, class: "field w-full text-xs" %>
             </div>
             <div class="w-1/5 ml-2">
-            <%= form.label :importance, class: "text-xs" %>
-            <%= form.number_field :importance, class: "field w-full text-xs" %>
-            </div>
-            <div class="w-1/5 ml-2">
             <%= form.label :unit, class: "text-xs" %>
             <%= form.text_field :unit, class: "field w-full text-xs" %>
+            </div>
+            <div class="w-1/5 ml-2">
+            <%= form.label :importance, class: "text-xs" %>
+            <%= form.number_field :importance, class: "field w-full text-xs" %>
             </div>
         </div>
 

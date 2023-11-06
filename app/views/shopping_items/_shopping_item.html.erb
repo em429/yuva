@@ -5,7 +5,6 @@
       <p class="my-5">
         <strong class="font-medium mb-1">Title:</strong>
         <%= link_to shopping_item.title, shopping_item %>
-          
       </p>
 
       <p class="my-5">
@@ -14,8 +13,13 @@
       </p>
 
       <p class="my-5">
+        <strong class="font-medium mb-1">Unit:</strong>
+        <%= shopping_item.unit %>
+      </p>
+
+      <p class="my-5">
         <strong class="font-medium mb-1">Category:</strong>
-        <%= shopping_item.shopping_category_id %>
+        <%= shopping_item.shopping_category.title %>
       </p>
 
       <p class="my-5">
@@ -23,10 +27,6 @@
         <%= shopping_item.importance %>
       </p>
 
-      <p class="my-5">
-        <strong class="font-medium mb-1">Unit:</strong>
-        <%= shopping_item.unit %>
-      </p>
     </div>
 
     <% if action_name != "show" %>
@@ -36,12 +36,10 @@
     <% end %>
 
   </div>
-
-  <p class="my-5">
+  <div class="mb-6" >
     <strong class="font-medium mb-1">Notes:</strong>
-    <%= shopping_item.notes %>
-  </p>
-  <hr>
+    <p class="whitespace-pre"><%= shopping_item.notes %></p>
+  </div>
 
 
 </div>
