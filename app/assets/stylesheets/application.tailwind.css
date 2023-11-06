@@ -4,12 +4,10 @@
 
 
 @layer components {
-  h2 {
+  h2, h1, h3, a, p, label, button {
     @apply text-stone-700;
   }
-  a { @apply text-stone-700; }
-  button { @apply text-stone-700; }
-
+  label { @apply text-sm;}
 
   .field {
     @apply block shadow rounded-md border border-gray-200 focus:ring-0 focus:border-gray-400 px-3 py-2;
