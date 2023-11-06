@@ -23,8 +23,10 @@
 
 
   <div class="my-5 shadow rounded-md" data-controller="multiselect" data-multiselect-search-url-value="/search_shopping_items" data-placeholder="Search for items...">
-    <select multiple="multiple" class="multiselect__hidden" data-multiselect-target="hidden" name="shopping_items[]" id="shopping_item_ids"></select>
+    <select multiple="multiple" class="multiselect__hidden" data-multiselect-target="hidden" name="recipe[shopping_item_ids][]" id="recipe_shopping_item_ids"></select>
   </div>
+
+
 
   <div class="inline">
     <%= form.submit class: "btn-primary cursor-pointer" %>
