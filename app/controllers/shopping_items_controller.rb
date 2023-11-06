@@ -19,7 +19,7 @@ class ShoppingItemsController < ApplicationController
   end
 
   def search
-    @shopping_items = ShoppingItem.where("title LIKE ?", "%#{params[:q]}%")
+    @shopping_items = ShoppingItem.cooking_ingredients.where("title LIKE ?", "%#{params[:q]}%")
 
     respond_to do |format|
       format.json
@@ -73,7 +73,9 @@ class ShoppingItemsController < ApplicationController
         format.turbo_stream do
           render turbo_stream: turbo_stream.replace("form-#{category.id}",
                                                     partial: "dashboard/inline_shopping_form",
-                                                    locals: { shopping_item: @shopping_item })
+                                                    locals: { item: @shopping_item,
+                                                              category: category,
+                                                              hide_form: false })
         end
         format.html do
           render :new, status: :unprocessable_entity
