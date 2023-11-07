@@ -4,6 +4,23 @@
 
 
 @layer components {
+
+  /* This is a clever custom style for the scratchpad textarea to display notepad like horizontal lines */
+  .scratchpad {
+    background-attachment: local;
+    background-image:
+        linear-gradient(to right, theme(colors.yellow.100) 14px, transparent 14px),
+        linear-gradient(to left, theme(colors.yellow.100) 14px, transparent 14px),
+        repeating-linear-gradient(
+          theme(colors.yellow.100),
+          theme(colors.yellow.100) 23px,
+          theme(colors.yellow.400) 23px,
+          theme(colors.yellow.400) 24px,
+          theme(colors.yellow.100) 24px
+        );
+}
+  .scratchpad { @apply px-4 pt-1 leading-6 text-sm focus:border-yellow-400 focus:ring-0 text-yellow-800 border-yellow-300/80;}
+
   h2, h1, h3, a, p, label, button {
     @apply text-stone-700;
   }

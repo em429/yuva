@@ -1,7 +1,7 @@
 <%= turbo_frame_tag 'scratchpad' do %>
     <%= form_with(model: Scratchpad.first, url: scratchpad_path,
     data: { controller: "autosave", autosave_target: "form" }, method: :put) do |f| %>
-        <%= f.text_area :contents, class: "w-full h-40 rounded-xl border-yellow-300/80 shadow-lg shadow-stone-200 field bg-yellow-100 focus:border-yellow-300 focus:ring-0",
+        <%= f.text_area :contents, class: "scratchpad w-full h-36 shadow-lg shadow-stone-200 rounded-3xl",
         data: { action: "input->autosave#save" } %>
     <% end %>
 <% end %>
