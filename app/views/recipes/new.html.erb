@@ -1,7 +1,17 @@
+
+
 <div class="mx-auto mt-6 md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New recipe</h1>
+  <h1 class="font-bold text-2xl">New recipe</h1>
 
   <%= render "form", recipe: @recipe %>
 
-  <%= link_to "Back to recipes", recipes_path, class: "ml-2 btn-secondary inline-block " %>
+
+  <div class="mt-6 mb-20">
+    <h2 class="font-bold text-xl">Add new items</h1>
+    <%= render partial: "dashboard/inline_shopping_form",
+    locals: { category: ShoppingCategory.cooking_ingredients[0],
+    item: ShoppingItem.new,
+    hide_form: false } %>
+  </div>
+
 </div>
