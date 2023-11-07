@@ -19,7 +19,7 @@
           theme(colors.yellow.100) 24px
         );
 }
-  .scratchpad { @apply px-4 pt-1 leading-6 text-sm focus:border-yellow-400 focus:ring-0 text-yellow-800 border-yellow-300/80;}
+  .scratchpad { @apply px-4 pt-1 leading-6 text-sm focus:border-yellow-300/0 focus:shadow-lg focus:ring-0 text-yellow-800 border-yellow-300/0;}
 
   h2, h1, h3, a, p, label, button {
     @apply text-stone-700;
