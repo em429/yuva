@@ -9,12 +9,17 @@
   <% @shopping_categories.each do |category| %>
     <div data-controller="toggle-item-form toggle-item-list"  class="mt-6">
       <%# Category Title with toggle %>
-      <div data-toggle-item-list-target="title" class="mb-4 px-5 py-2 relative z-20 space-x-2 flex justify-between bg-gradient-to-r from-orange-200  to-amber-200 rounded-2xl">
+      <div data-toggle-item-list-target="title"
+        class="mb-4 px-5 mx-[-10px] py-2 space-x-2 flex justify-between
+        shadow-md shadow-stone-200 border-t-2 border-stone-400 bg-stone-50">
 
           <h2 data-action="click->toggle-item-list#toggleList" 
           class="text-xl font-bold cursor-pointer"><%= category.title %></h2>
 
-        <button class="font-black text-stone-600 " data-action="click->toggle-item-form#toggleForm" data-category-id="<%= category.id %>">+</button>
+        <button class="font-black text-stone-600 " data-action="click->toggle-item-form#toggleForm" data-category-id="<%= category.id %>">
+        
+        <%= render partial: "svgs/plus", locals: { classes: "stroke-2" } %>
+        </button>
       </div>
       <%# END Category Title %>
 
@@ -24,7 +29,7 @@
         <%= render partial: "inline_shopping_form",
           locals: { category: category, item: ShoppingItem.new, hide_form: true } %>
 
-        <div class="" data-toggle-item-list-target="list" data-toggle-item-form-target="item_list">
+        <div class="" data-toggle-item-list-target="list">
           <%= render partial: "dashboard/shopping_items_list", locals: { category: category } %>
         </div>
       </div>

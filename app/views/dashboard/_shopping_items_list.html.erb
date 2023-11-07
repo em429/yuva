@@ -1,21 +1,22 @@
 <div id="shopping-items-<%= category.id %>" class="flex flex-wrap gap-2">
     <% category.shopping_items.sort_by(&:importance).each do |item| %>
 
-        <div class="p-1 grow smallcaps  border text-center rounded-xl shadow hover:shadow-md  text-stone-400
+        <div class="px-0 py-1 grow smallcaps  border text-center rounded-xl shadow hover:shadow-md  text-stone-400
               <%= item.stock == 0 ? 'border-stone-300 bg-stone-200/60 hover:shadow-stone-200' : 'hover:shadow-lime-200 border-lime-300 bg-lime-100/60' %>
               first-letter:text-lg first-letter:font-black first-letter:text-stone-700/80
               ">
             
-            <%= link_to item.title, item, class:"text-sm" %>
-            <span class="text-xs text-black/40"><%= item.stock %>  <%= item.unit %></span>
+            <%= link_to item.title, item, class:"text-sm " %>
+            <div class="mb-[-5px] mt-[-6px] text-xs text-black/40"><%= format_unit item.unit, item.stock %>  <%= item.unit %></div>
 
             <div class="flex items-center">
+
                 <div class="flex mx-auto max-w-fit">
                     <%= button_to '-', decrement_shopping_item_path(item), method: :post, class: "text-2xl font-medium px-2" %>
                     <%= button_to '+', increment_shopping_item_path(item), method: :post, class: "text-2xl font-medium px-2" %>
                 </div>
                 <% if item.notes.present? %>
-                    <%= link_to "N", item, class: "px-2 self-end mr-[-4px] mb-[-4px] border border-yellow-300 rounded-br-xl bg-yellow-200/80 text-md text-yellow-500 font-black" %>
+                    <%= link_to "N", item, class: "px-2 self-end mb-[-4px] border border-yellow-300 rounded-br-xl bg-yellow-200/80 text-md text-yellow-500 font-black" %>
                 <% end %>
             </div>
         </div>

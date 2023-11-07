@@ -6,10 +6,6 @@ export default class extends Controller {
 
   toggleList() {
     this.listTarget.classList.toggle('hidden')
-    
-    // Add shadow to category title box after hiding the list
-    this.titleTarget.classList.toggle('shadow-md')
-    this.titleTarget.classList.toggle('shadow-stone')
   }
 
 }
