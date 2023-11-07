@@ -1,5 +1,17 @@
 
-<div data-add-item-target="form" id="form-<%= category.id %>" 
+<% if item.errors.any? %>
+<div id="error_explanation" class="flash_danger">
+    <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+    <ul>
+    <% item.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+    <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div data-toggle-item-form-target="form" id="form-<%= category.id %>" 
 class="<%= 'hidden' if hide_form %> mt-2 mb-4">
     <%= form_with(model: item, url: shopping_items_path, method: :post) do |form| %>
     <%= form.hidden_field :shopping_category_id, value: category.id %>
@@ -11,15 +23,15 @@ class="<%= 'hidden' if hide_form %> mt-2 mb-4">
             </div>
             <div class="w-1/5">
             <%= form.label :stock, class: "text-xs" %>
-            <%= form.number_field :stock, class: "field w-full text-xs" %>
+            <%= form.number_field :stock, value: 0, class: "field w-full text-xs" %>
             </div>
             <div class="w-1/5 ml-2">
             <%= form.label :unit, class: "text-xs" %>
-            <%= form.text_field :unit, class: "field w-full text-xs" %>
+            <%= form.text_field :unit, value: 'db', class: "field w-full text-xs" %>
             </div>
             <div class="w-1/5 ml-2">
             <%= form.label :importance, class: "text-xs" %>
-            <%= form.number_field :importance, class: "field w-full text-xs" %>
+            <%= form.number_field :importance, value: 3, class: "field w-full text-xs" %>
             </div>
         </div>
 
