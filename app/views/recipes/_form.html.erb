@@ -21,14 +21,16 @@
     <%= form.text_area :description, rows: 4, class: "field mt-2 w-full" %>
   </div>
 
-
-  <div class="my-5 shadow rounded-md" data-controller="multiselect" data-multiselect-search-url-value="/search_shopping_items" data-placeholder="Search for items...">
-    <select multiple="multiple" class="multiselect__hidden" data-multiselect-target="hidden" name="recipe[shopping_item_ids][]" id="recipe_shopping_item_ids"></select>
-  </div>
-
+  <%#= turbo_frame_tag 'shopping_items' do %>
+    <div class="my-5 shadow rounded-md" data-controller="multiselect" data-multiselect-search-url-value="/search_shopping_items" data-placeholder="Search for items...">
+      <select multiple="multiple" class="multiselect__hidden" data-multiselect-target="hidden" name="recipe[shopping_item_ids][]" id="recipe_shopping_item_ids"></select>
+    </div>
+  <%# end %>
 
 
   <div class="inline">
     <%= form.submit class: "btn-primary cursor-pointer" %>
   </div>
 <% end %>
+
+
