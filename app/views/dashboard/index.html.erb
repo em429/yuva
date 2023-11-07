@@ -9,7 +9,7 @@
   <% @shopping_categories.each do |category| %>
     <div data-controller="toggle-item-form toggle-item-list"  class="mt-6">
       <%# Category Title with toggle %>
-      <div data-toggle-item-list-target="title" class="px-5 py-2 relative z-20 space-x-2 flex justify-between bg-gradient-to-r from-orange-200  to-amber-200 rounded-3xl">
+      <div data-toggle-item-list-target="title" class="mb-4 px-5 py-2 relative z-20 space-x-2 flex justify-between bg-gradient-to-r from-orange-200  to-amber-200 rounded-2xl">
 
           <h2 data-action="click->toggle-item-list#toggleList" 
           class="text-xl font-bold cursor-pointer"><%= category.title %></h2>
@@ -19,12 +19,12 @@
       <%# END Category Title %>
 
       <%#  Item List with initially hidden form %>
-      <div class="mt-[-40px] p-4 relative z-0 bg-stone-100 rounded-3xl border border-stone-300 shadow-md shadow-stone-200">
+      <div class="">
 
         <%= render partial: "inline_shopping_form",
           locals: { category: category, item: ShoppingItem.new, hide_form: true } %>
 
-        <div class="mt-10" data-toggle-item-list-target="list" data-toggle-item-form-target="item_list">
+        <div class="" data-toggle-item-list-target="list" data-toggle-item-form-target="item_list">
           <%= render partial: "dashboard/shopping_items_list", locals: { category: category } %>
         </div>
       </div>
