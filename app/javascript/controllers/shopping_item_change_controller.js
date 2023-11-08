@@ -5,25 +5,23 @@ export default class extends Controller {
   static values = { longPressDuration: Number }
 
   connect() {
-
     this.timeoutId = null
     this.longPressDurationValue = this.longPressDurationValue || 500 // Defaults to 500ms
   }
 
   startPress(event) {
-    event.preventDefault()
-
     this.timeoutId = setTimeout(() => {
+      event.preventDefault()
       this.decrement(event)
       this.timeoutId = null
     }, this.longPressDurationValue)
   }
 
   endPress(event) {
-    event.preventDefault()
-
     if (this.timeoutId !== null) {
+      event.preventDefault()
       clearTimeout(this.timeoutId)
+      this.timeoutId = null
       this.increment(event)
     }
   }
