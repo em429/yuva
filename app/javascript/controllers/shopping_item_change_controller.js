@@ -2,8 +2,30 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="shopping-item-change"
 export default class extends Controller {
+  static values = { longPressDuration: Number }
+
   connect() {
-    this.element.addEventListener('long-press', this.decrement.bind(this));
+
+    this.timeoutId = null
+    this.longPressDurationValue = this.longPressDurationValue || 500 // Defaults to 500ms
+  }
+
+  startPress(event) {
+    event.preventDefault()
+
+    this.timeoutId = setTimeout(() => {
+      this.decrement(event)
+      this.timeoutId = null
+    }, this.longPressDurationValue)
+  }
+
+  endPress(event) {
+    event.preventDefault()
+
+    if (this.timeoutId !== null) {
+      clearTimeout(this.timeoutId)
+      this.increment(event)
+    }
   }
 
   increment(e) {
@@ -22,11 +44,14 @@ export default class extends Controller {
         'Turbo-Frame': `shopping-item-${itemId}`
       },
     }).then (response => response.text())
-    .then(html => Turbo.renderStreamMessage(html));
+    .then(html => {
+      Turbo.renderStreamMessage(html)
+    });
   }
 
   decrement(e) {
     e.preventDefault();
+
     
     var itemId = this.data.get('shoppingItemId');
 
@@ -42,6 +67,7 @@ export default class extends Controller {
       },
     }).then (response => response.text())
     .then(html => Turbo.renderStreamMessage(html));
+
   }
 
 

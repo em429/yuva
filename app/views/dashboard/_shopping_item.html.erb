@@ -1,8 +1,9 @@
- 
 
  <turbo-frame 
     id="shopping-item-<%= item.id %>"
-    class="relative px-2 pt-1 grow  border text-center rounded-xl shadow hover:shadow-md  text-stone-400 <%= item.stock == 0 ? 'border-stone-300 bg-stone-200/60 hover:shadow-stone-200' : 'hover:shadow-lime-200 border-lime-300 bg-lime-100/60' %>">
+    class="
+            <%= item.stock == 0 ? 'border-stone-300 bg-stone-200/60 hover:shadow-stone-200' : 'hover:shadow-lime-200 border-lime-300 bg-lime-100/60' %>
+            relative px-2 pt-1 grow  border text-center rounded-xl shadow hover:shadow-md  text-stone-400">
     
     <%# Item Title %>
     <div class="mb-1 text-sm first-letter:text-lg first-letter:font-black first-letter:text-stone-700/80">
@@ -11,9 +12,9 @@
 
     <%# Container that listens to long-press and normal click events to change stock %>
     <div data-controller="shopping-item-change"
-        data-action="click->shopping-item-change#increment" 
         data-shopping-item-change-shopping-item-id="<%= item.id %>"
-        data-long-press-delay="500"
+        data-shopping-item-change-long-press-duration-value="300"
+        data-action="mousedown->shopping-item-change#startPress mouseup->shopping-item-change#endPress touchstart->shopping-item-change#startPress touchend->shopping-item-change#endPress"
         class="h-8 mx-[-8px]">
         
         <%# Stock and unit %>
