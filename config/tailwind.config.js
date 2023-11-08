@@ -12,11 +12,18 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        }
+      },
       animation: {
         // Bounces 5 times 1s equals 5 seconds
-        'bounce-short': 'bounce 1s ease-in-out 0.5',
-        'pulse-short': 'pulse 1s ease-in-out 0.5',
-        'ping-short': 'ping 1s ease-in-out 0.5'
+        'wiggle-short': 'wiggle 0.3s ease-in-out 1',
+        'bounce-short': 'bounce 0.6s ease-in-out 1',
+        'pulse-short': 'pulse 0.5s ease-in-out 1',
+        'ping-short': 'ping 0.5s ease-in-out 0.5'
       }
     },
   },
