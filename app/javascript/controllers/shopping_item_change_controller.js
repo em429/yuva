@@ -4,13 +4,12 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static values = { longPressDuration: Number }
 
-
   connect() {
     // Values needed for Long-press feature
     this.timeoutId = null
     this.longPressDurationValue = this.longPressDurationValue || 500 // Defaults to 500ms
 
-    // Values needed for accidental tap prevention while scrolling on phone
+    // Values and event listeners needed for accidental tap prevention while scrolling on phone
     this.isScrolling = false
     this.handleTouchStart = this.handleTouchStart.bind(this)
     this.handleTouchMove = this.handleTouchMove.bind(this)
@@ -18,13 +17,6 @@ export default class extends Controller {
     this.element.addEventListener('touchstart', this.handleTouchStart) 
     this.element.addEventListener('touchmove', this.handleTouchMove)
     this.element.addEventListener('touchend', this.handleTouchEnd)
-
-    // // Animations on elements coming from turbo_stream responses, elements coming in
-    // document.addEventListener('turbo:before-stream-render', (event) => {
-    //   if (event.target.firstElementChild instanceof HTMLTemplateElement) {
-    //     event.target.templateElement.content.firstElementChild.classList.add('animate-pulse-short')
-    // }});
-
   }
 
   disconnect() {
@@ -48,7 +40,6 @@ export default class extends Controller {
     // Reset state on end of touch
     this.isScrolling = false
   }
-
  
   startPress(event) {
     if (this.isScrolling) return // Do nothing if the user is scrolling
@@ -68,14 +59,11 @@ export default class extends Controller {
     clearTimeout(this.timeoutId)
     this.timeoutId = null
     this.increment(event)
-
   }
 
   increment(event) {
     event.preventDefault();
-    
     var itemId = this.data.get('shoppingItemId');
-
     const csrfToken = document.querySelector("[name='csrf-token']").content
 
     console.log("incrementing..")
@@ -89,18 +77,12 @@ export default class extends Controller {
     }).then (response => response.text())
     .then(html => {
       Turbo.renderStreamMessage(html);
-
-
-
     });
   }
 
   decrement(e) {
     e.preventDefault();
-
-    
     var itemId = this.data.get('shoppingItemId');
-
     const csrfToken = document.querySelector("[name='csrf-token']").content
 
     console.log("decrementing..")
@@ -115,9 +97,7 @@ export default class extends Controller {
     .then(html => {
       Turbo.renderStreamMessage(html);
     });
-
-  }
-  
+  } 
 }
 
 
