@@ -18,7 +18,6 @@ class ShoppingItem < ApplicationRecord
       else
         self.stock += 0.5
     end
-    self.save
   end
 
   def decrement_stock
@@ -28,7 +27,6 @@ class ShoppingItem < ApplicationRecord
       else
         self.stock -= 0.5
     end
-    self.save
   end
 
 end

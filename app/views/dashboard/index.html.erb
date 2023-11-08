@@ -8,6 +8,7 @@
 
   <% @shopping_categories.each do |category| %>
     <div data-controller="toggle-item-form toggle-item-list"  class="mt-6">
+      
       <%# Category Title with toggle %>
       <div data-toggle-item-list-target="title"
         class="mb-4 px-5 mx-[-10px] py-2 space-x-2 flex justify-between
@@ -26,12 +27,17 @@
       <%#  Item List with initially hidden form %>
       <div class="">
 
+        <%# Form, hidden by default %>
         <%= render partial: "inline_shopping_form",
           locals: { category: category, item: ShoppingItem.new, hide_form: true } %>
 
-        <div class="" data-toggle-item-list-target="list">
-          <%= render partial: "dashboard/shopping_items_list", locals: { category: category } %>
+        <div data-toggle-item-list-target="list" id="shopping-items-<%= category.id %>"
+              class="flex flex-wrap gap-2">
+          <% category.shopping_items.sort_by(&:importance).each do |item| %>
+            <%= render partial: "dashboard/shopping_item", locals: { item: item } %>
+           <% end %>   
         </div>
+
       </div>
       <%# END Item List %>
 
