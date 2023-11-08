@@ -7,18 +7,18 @@
     
     <%# Item Title %>
     <div class="mb-1 text-sm first-letter:text-lg first-letter:font-black first-letter:text-stone-700/80">
-        <%= link_to item.title, item %>
+        <%= link_to item.title, item, target: "_top" %>
     </div>
 
     <%# Container that listens to long-press and normal click events to change stock %>
-    <div data-controller="shopping-item-change"
+    <div class="h-8 mx-[-8px]">
+        
+        <%# Stock and unit %>
+        <div data-controller="shopping-item-change"
         data-shopping-item-change-shopping-item-id="<%= item.id %>"
         data-shopping-item-change-long-press-duration-value="300"
         data-action="mousedown->shopping-item-change#startPress mouseup->shopping-item-change#endPress touchstart->shopping-item-change#startPress touchend->shopping-item-change#endPress"
-        class="h-8 mx-[-8px]">
-        
-        <%# Stock and unit %>
-        <div class="text-sm text-black/40">
+        class="text-sm text-black/40 w-fit mx-auto cursor-pointer">
             <%= format_unit item.unit, item.stock %>  <%= item.unit %>
         </div>
 
