@@ -42,3 +42,4 @@ console_command = "/rails/bin/rails console"
 [[statics]]
   guest_path = "/rails/public"
   url_prefix = "/"
+  swap_size_mb = 512

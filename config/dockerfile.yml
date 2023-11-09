@@ -4,4 +4,5 @@
 options:
   label:
     fly_launch_runtime: rails
-  sentry: true
+  parallel: true
+  swap: 512M

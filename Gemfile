@@ -73,4 +73,6 @@ gem "sentry-ruby", "~> 5.12"
 
 gem "sentry-rails", "~> 5.12"
 
-gem 'jbuilder'
+# Stuff I added:
+
+gem 'jbuilder' # I disabled this initially until I needed it

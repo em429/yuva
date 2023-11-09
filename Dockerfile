@@ -58,7 +58,6 @@ COPY --from=build /rails /rails
 RUN useradd rails --create-home --shell /bin/bash && \
     mkdir /data && \
     chown -R rails:rails db log storage tmp /data
-USER rails:rails
 
 # Deployment options
 ENV DATABASE_URL="sqlite3:///data/production.sqlite3"
