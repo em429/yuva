@@ -86,7 +86,8 @@ class ShoppingItemsController < ApplicationController
   # DELETE /shopping_items/1
   def destroy
     @shopping_item.destroy!
-    redirect_to shopping_items_url, notice: "Shopping item was successfully destroyed.", status: :see_other
+    #redirect_to root_url, notice: "Shopping item was successfully destroyed.", status: :see_other
+    redirect_to root_url, status: :see_other
   end
 
   private
