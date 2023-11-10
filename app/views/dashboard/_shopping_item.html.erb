@@ -14,7 +14,7 @@
                 touchstart->shopping-item-change#startPress touchmove->shopping-item-change#movePress touchend->shopping-item-change#endPress"
 
     class="
-            <%= item.stock ? 'border-stone-300 bg-stone-200/60 hover:shadow-stone-200' : 'hover:shadow-lime-200 border-lime-300 bg-lime-100/60' %>
+            <%= item.stock ? 'hover:shadow-lime-200 border-lime-300 bg-lime-100/60' : 'border-stone-300 bg-stone-200/60 hover:shadow-stone-200' %>
             relative px-2 py-2 grow cursor-pointer selecet-none border text-center rounded-xl shadow hover:shadow-md  text-stone-400">
     
     <%# Item Title %>
@@ -28,7 +28,7 @@
         <%# "Cut out" bottom left corner if the item has a note %>
         <% if item.notes.present? %>
             <span class="absolute bottom-0 text-transparent left-0 ml-[-1px] px-1 border rounded-tr-2xl rounded-bl-xl text-xs
-                  shadow shadow-inner <%= item.stock ? "shadow-stone-400" : "shadow-lime-500" %>" >
+                  shadow shadow-inner <%= item.stock ? "shadow-lime-500" : "shadow-stone-400" %>" >
             n
             </span>
         <% end %>
