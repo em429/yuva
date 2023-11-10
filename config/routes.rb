@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :recipes
   get 'dashboard', to: 'dashboard#index'
 
-  resources :shopping_items do
+  resources :shopping_items, only: [ :create, :show, :edit, :update, :destroy ] do
     member do
       post 'toggle_stock'
     end

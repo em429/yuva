@@ -1,7 +1,0 @@
-<div id="shopping-items-<%= category.id %>" class="flex flex-wrap gap-2">
-    <% category.shopping_items.sort_by(&:importance).each do |item| %>
-
-        <%= render partial: "dashboard/shopping_item", locals: { item: item } %>
-        
-    <% end %>   
-</div>

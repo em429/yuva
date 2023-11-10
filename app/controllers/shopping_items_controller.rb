@@ -27,18 +27,8 @@ class ShoppingItemsController < ApplicationController
     end
   end
 
-  # GET /shopping_items
-  def index
-    @shopping_items = ShoppingItem.all
-  end
-
   # GET /shopping_items/1
   def show
-  end
-
-  # GET /shopping_items/new
-  def new
-    @shopping_item = ShoppingItem.new
   end
 
   # GET /shopping_items/1/edit
