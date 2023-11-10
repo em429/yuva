@@ -35,7 +35,7 @@
               class="flex flex-wrap gap-2">
           
           <%# Sort items first by stock, then by importance %>
-          <% category.shopping_items.order(stock: :desc).sort_by(&:importance).each do |item| %>
+          <% category.shopping_items.order(stock: :asc).each do |item| %>
 
             <%= render partial: "dashboard/shopping_item", locals: { item: item } %>
            <% end %>   
