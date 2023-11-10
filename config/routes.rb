@@ -8,8 +8,7 @@ Rails.application.routes.draw do
 
   resources :shopping_items do
     member do
-      post 'increment'
-      post 'decrement'
+      post 'toggle_stock'
     end
   end
   get 'search_shopping_items', to: 'shopping_items#search'

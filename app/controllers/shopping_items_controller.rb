@@ -1,34 +1,19 @@
 class ShoppingItemsController < ApplicationController
   before_action :set_shopping_item, only: %i[ show edit update destroy ]
 
-  def increment
+  def toggle_stock
     @item = ShoppingItem.find(params[:id])
 
-    @item.increment_stock
-    if @item.save
-      respond_to do |format|
-        format.turbo_stream do
-          render turbo_stream: turbo_stream.replace("shopping-item-#{@item.id}",
-                  partial: "dashboard/shopping_item",
-                  locals: { item: @item })
-        end
-      end
-    end
-  end
-
-  def decrement
-    @item = ShoppingItem.find(params[:id])
-
-    @item.decrement_stock
+    @item.stock = !@item.stock
     if @item.save
       respond_to do |format|
         format.turbo_stream do
           render turbo_stream: turbo_stream.replace("shopping-item-#{@item.id}",
                 partial: "dashboard/shopping_item",
+                status: :ok,
                 locals: { item: @item })
         end
         format.html { redirect_to dashboard_path }
-
       end
     end
   end

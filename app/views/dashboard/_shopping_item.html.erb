@@ -1,32 +1,34 @@
 
+<%# Container that listens to long-press and normal click events. %> 
+<%# Long press toggles stock, short goes to item page %>
+
  <turbo-frame 
     id="shopping-item-<%= item.id %>"
     data-stream-enter-class="animate-wiggle-short"
+    data-controller="shopping-item-change"
+    data-shopping-item-change-shopping-item-id="<%= item.id %>"
+    data-shopping-item-change-long-press-duration-value="500"
+    <%# Why all these actions? This is to provide the long-press/short-press functionality, while still %>
+    <%# protecting against accidental presses while scrolling. %>
+    data-action="mousedown->shopping-item-change#startPress mousemove->shopping-item-change#movePress mouseup->shopping-item-change#endPress
+                touchstart->shopping-item-change#startPress touchmove->shopping-item-change#movePress touchend->shopping-item-change#endPress"
+
     class="
-            <%= item.stock == 0 ? 'border-stone-300 bg-stone-200/60 hover:shadow-stone-200' : 'hover:shadow-lime-200 border-lime-300 bg-lime-100/60' %>
-            relative px-2 pt-1 grow  border text-center rounded-xl shadow hover:shadow-md  text-stone-400">
+            <%= item.stock ? 'border-stone-300 bg-stone-200/60 hover:shadow-stone-200' : 'hover:shadow-lime-200 border-lime-300 bg-lime-100/60' %>
+            relative px-2 py-2 grow cursor-pointer selecet-none border text-center rounded-xl shadow hover:shadow-md  text-stone-400">
     
     <%# Item Title %>
-    <div class="mb-1 text-sm first-letter:text-lg first-letter:font-black first-letter:text-stone-700/80">
-        <%= link_to item.title, item, target: "_top" %>
+    <div class="text-sm first-letter:text-lg first-letter:font-black first-letter:text-stone-700/80 select-none">
+        <%#= link_to item.title, item, target: "_top" %>
+        <%= item.title %>
     </div>
 
-    <%# Container that listens to long-press and normal click events to change stock %>
-    <div class="h-8 mx-[-8px]">
-        
-        <%# Stock and unit %>
-        <div data-controller="shopping-item-change"
-        data-shopping-item-change-shopping-item-id="<%= item.id %>"
-        data-shopping-item-change-long-press-duration-value="300"
-        data-action="mousedown->shopping-item-change#startPress mouseup->shopping-item-change#endPress touchstart->shopping-item-change#startPress touchend->shopping-item-change#endPress"
-        class="text-sm text-black/40 w-fit mx-auto cursor-pointer select-none">
-            <%= format_unit item.unit, item.stock %>  <%= item.unit %>
-        </div>
+    <div class="mx-[-8px]">
 
         <%# "Cut out" bottom left corner if the item has a note %>
         <% if item.notes.present? %>
-            <span class="absolute bottom-0 text-transparent left-0 px-1 border rounded-tr-3xl rounded-bl-xl text-xs
-                  shadow shadow-inner <%= item.stock == 0 ? "shadow-stone-400" : "shadow-lime-500" %>" >
+            <span class="absolute bottom-0 text-transparent left-0 ml-[-1px] px-1 border rounded-tr-2xl rounded-bl-xl text-xs
+                  shadow shadow-inner <%= item.stock ? "shadow-stone-400" : "shadow-lime-500" %>" >
             n
             </span>
         <% end %>
