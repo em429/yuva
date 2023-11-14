@@ -22,12 +22,8 @@ class="<%= 'hidden' if hide_form %> mt-2 mb-4">
             <%= form.text_field :title, class: "field w-full text-xs" %>
             </div>
             <div class="w-1/5">
-            <%= form.label :stock, class: "text-xs" %>
-            <%= form.number_field :stock, value: 0, class: "field w-full text-xs" %>
-            </div>
-            <div class="w-1/5 ml-2">
-            <%= form.label :unit, class: "text-xs" %>
-            <%= form.text_field :unit, value: 'db', class: "field w-full text-xs" %>
+            <%= form.label :stock, "Do we have it?", class: "text-xs" %>
+            <%= form.check_box :stock, class: "py-4 px-4 field text-xs" %>
             </div>
             <div class="w-1/5 ml-2">
             <%= form.label :importance, class: "text-xs" %>
