@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_09_214953) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_10_133945) do
   create_table "passcodes", force: :cascade do |t|
     t.string "password_digest"
     t.datetime "created_at", null: false
@@ -56,7 +56,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_09_214953) do
     t.integer "shopping_category_id", null: false
     t.text "notes"
     t.integer "importance", default: 1
-    t.string "unit", default: "kg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shopping_category_id"], name: "index_shopping_items_on_shopping_category_id"
