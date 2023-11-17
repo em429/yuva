@@ -1,28 +1,32 @@
-<div id="<%= dom_id recipe %>">
-  <h2 class="my-5 text-xl font-bold">
-    <%= link_to recipe.title, recipe %>
+<div data-controller="toggle-item-list"
+  id="<%= dom_id recipe %>" class="p-3 my-4 rounded-xl bg-stone-100">
+
+  <h2 data-toggle-item-list-target="title" data-action="click->toggle-item-list#toggleList" class="text-xl font-bold cursor-pointer">
+    <%= recipe.title %>
   </h2>
 
-  <p class="my-5">
-    <%= recipe.description %>
-  </p>
+  <div data-toggle-item-list-target="list">
+    <p class="whitespace-pre-line">
+      <%= recipe.description %>
+    </p>
 
-  <div class="my-5">
-    <strong class="block font-medium mb-1">Ingredients</strong>
-    <ul class="list-disc pl-5">
-      <% recipe.recipe_items.each do |ingredient| %>
-        <% if ingredient.shopping_item.stock %>
-          <li class="text-green-500">
-            <%= button_to ingredient.shopping_item.title, ingredient.shopping_item, class: "text-green-500" %>
-          </li>
-        <% else %>
-          <li class="text-red-500">
-            <%= link_to ingredient.shopping_item.title, ingredient.shopping_item, class: "text-red-500" %>
-          </li>
+    <div class="my-5">
+      <strong class="block font-medium mb-1">Ingredients</strong>
+      <ul class="list-disc pl-5">
+        <% recipe.recipe_items.each do |ingredient| %>
+          <% if ingredient.shopping_item.stock %>
+            <li class="text-lime-500">
+              <%= button_to ingredient.shopping_item.title, ingredient.shopping_item, class: "font-bold" %>
+            </li>
+          <% else %>
+            <li class="text-red-500">
+              <%= link_to ingredient.shopping_item.title, ingredient.shopping_item, class: "" %>
+            </li>
+          <% end %>
         <% end %>
-      <% end %>
 
-    </ul>
+      </ul>
+    </div>
   </div>
 
 
