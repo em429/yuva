@@ -5,6 +5,7 @@ class ShoppingItem < ApplicationRecord
 
   validates :stock, inclusion: [true, false]
   validates :title, presence: true
+  validates_uniqueness_of :title
   validates :importance, presence: true
 
   scope :cooking_ingredients, -> { where(shopping_category_id: 1) }

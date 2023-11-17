@@ -35,7 +35,6 @@
           
           <%# Sort items first by stock, then by importance %>
           <% category.shopping_items.order(stock: :asc).each do |item| %>
-
             <%= render partial: "dashboard/shopping_item", locals: { item: item } %>
            <% end %>   
         </div>
