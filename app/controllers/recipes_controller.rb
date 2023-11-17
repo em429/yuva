@@ -24,7 +24,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
 
     if @recipe.save
-      redirect_to @recipe, notice: "Recipe was successfully created."
+      redirect_to recipes_path, notice: "Recipe was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class RecipesController < ApplicationController
   # PATCH/PUT /recipes/1
   def update
     if @recipe.update(recipe_params)
-      redirect_to @recipe, notice: "Recipe was successfully updated.", status: :see_other
+      redirect_to recipes_path, notice: "Recipe was successfully updated.", status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
