@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  resources :recipes
   get 'dashboard', to: 'dashboard#index'
+
+  resources :recipes, except: [ :show ]
 
   resources :shopping_items, only: [ :create, :show, :edit, :update, :destroy ] do
     member do
