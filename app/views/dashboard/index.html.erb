@@ -7,14 +7,14 @@
 
 
   <% @shopping_categories.each do |category| %>
-    <div data-controller="toggle-item-form toggle-item-list"  class="mt-6">
+    <div data-controller="toggle-item-form toggle-hide"  class="mt-6">
       
       <%# Category Title with toggle %>
       <div
         class="mb-4 px-5 mx-[-10px] py-2 space-x-2 flex justify-between
         shadow-md shadow-stone-200 border-t-2 border-stone-400 bg-stone-50">
 
-          <h2 data-toggle-item-list-target="title" data-action="click->toggle-item-list#toggleList" 
+          <h2 data-toggle-hide-target="trigger" data-action="click->toggle-hide#do" 
           class="text-xl font-bold cursor-pointer"><%= category.title %></h2>
 
         <button class="font-black text-stone-600 " data-action="click->toggle-item-form#toggleForm" data-category-id="<%= category.id %>">
@@ -30,7 +30,7 @@
         <%= render partial: "inline_shopping_form",
           locals: { category: category, item: ShoppingItem.new, hide_form: true } %>
 
-        <div data-toggle-item-list-target="list" id="shopping-items-<%= category.id %>"
+        <div data-toggle-hide-target="triggered" id="shopping-items-<%= category.id %>"
               class="flex flex-wrap gap-2">
           
           <%# Sort items first by stock, then by importance %>

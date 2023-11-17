@@ -1,9 +1,9 @@
-<div data-controller="toggle-item-list"
+<div data-controller="toggle-hide"
   id="<%= dom_id recipe %>" class="p-3 my-4 rounded-xl bg-stone-100">
 
   <div class="flex justify-between items-baseline">
-    
-    <h2 data-toggle-item-list-target="title" data-action="click->toggle-item-list#toggleList" class="text-xl font-bold cursor-pointer">
+
+    <h2 data-toggle-hide-target="trigger" data-action="click->toggle-hide#do" class="text-xl font-bold cursor-pointer">
       <%= recipe.title %>
     </h2>
   
@@ -13,7 +13,7 @@
 
   </div>
 
-  <div data-toggle-item-list-target="list">
+  <div data-toggle-hide-target="triggered">
     <p class="whitespace-pre-line">
       <%= recipe.description %>
     </p>
