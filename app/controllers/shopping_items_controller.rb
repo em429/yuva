@@ -50,9 +50,9 @@ class ShoppingItemsController < ApplicationController
                                 locals: { item: ShoppingItem.new,
                                           category: category,
                                           hide_form: false }),
-            turbo_stream.replace("shopping-items-#{category.id}",
-                                partial: "dashboard/shopping_items_list",
-                                locals: { category: category })
+            turbo_stream.prepend("shopping-items-#{category.id}",
+                                partial: "dashboard/shopping_item",
+                                locals: { item: @shopping_item })
           ]
 
         end
