@@ -1,9 +1,17 @@
 <div data-controller="toggle-item-list"
   id="<%= dom_id recipe %>" class="p-3 my-4 rounded-xl bg-stone-100">
 
-  <h2 data-toggle-item-list-target="title" data-action="click->toggle-item-list#toggleList" class="text-xl font-bold cursor-pointer">
-    <%= recipe.title %>
-  </h2>
+  <div class="flex justify-between items-baseline">
+    
+    <h2 data-toggle-item-list-target="title" data-action="click->toggle-item-list#toggleList" class="text-xl font-bold cursor-pointer">
+      <%= recipe.title %>
+    </h2>
+  
+    <%= link_to edit_recipe_path(recipe) do %>
+      <%= render partial: "svgs/edit", locals: { classes: "" } %>
+    <% end %>
+
+  </div>
 
   <div data-toggle-item-list-target="list">
     <p class="whitespace-pre-line">
@@ -24,8 +32,8 @@
             </li>
           <% end %>
         <% end %>
-
       </ul>
+
     </div>
   </div>
 
