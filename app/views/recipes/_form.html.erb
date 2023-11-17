@@ -21,11 +21,13 @@
     <%= form.text_area :description, rows: 4, class: "field mt-2 w-full" %>
   </div>
 
-  <%#= turbo_frame_tag 'shopping_items' do %>
-    <div class="my-5 shadow rounded-md" data-controller="multiselect" data-multiselect-search-url-value="/search_shopping_items" data-placeholder="Search for items...">
-      <select multiple="multiple" class="multiselect__hidden" data-multiselect-target="hidden" name="recipe[shopping_item_ids][]" id="recipe_shopping_item_ids"></select>
+    <div class="my-5">
+      <%= form.label :shopping_item_ids, "Ingredients" %>
+      <%= form.select :shopping_item_ids,
+        ShoppingItem.cooking_ingredients.collect { |i| [ i.title, i.id ] },
+        {}, {data: {controller: "slim-select"}, multiple: true, class: "mt-2 !border-stone-200 h-10"}
+      %>
     </div>
-  <%# end %>
 
 
   <div class="inline">
