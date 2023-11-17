@@ -1,27 +1,30 @@
 <div id="<%= dom_id recipe %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
-    <%= recipe.title %>
-  </p>
+  <h2 class="my-5 text-xl font-bold">
+    <%= link_to recipe.title, recipe %>
+  </h2>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
     <%= recipe.description %>
   </p>
 
-<p class="my-5">
-  <strong class="block font-medium mb-1">Recipe Items:</strong>
-  <ul class="list-disc pl-5">
-    <% recipe.recipe_items.each do |item| %>
-      <li><%= item.shopping_item.title %></li>
-    <% end %>
-  </ul>
-</p>
-  
+  <div class="my-5">
+    <strong class="block font-medium mb-1">Ingredients</strong>
+    <ul class="list-disc pl-5">
+      <% recipe.recipe_items.each do |ingredient| %>
+        <% if ingredient.shopping_item.stock %>
+          <li class="text-green-500">
+            <%= button_to ingredient.shopping_item.title, ingredient.shopping_item, class: "text-green-500" %>
+          </li>
+        <% else %>
+          <li class="text-red-500">
+            <%= link_to ingredient.shopping_item.title, ingredient.shopping_item, class: "text-red-500" %>
+          </li>
+        <% end %>
+      <% end %>
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this recipe", recipe, class: "btn-secondary inline-block " %>
-    <%= link_to "Edit this recipe", edit_recipe_path(recipe), class: "btn-secondary inline-block" %>
-    <hr class="mt-6">
-  <% end %>
+    </ul>
+  </div>
+
+
+
 </div>
