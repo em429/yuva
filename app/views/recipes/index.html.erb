@@ -5,9 +5,10 @@
       </div>
   <% end %>
 
-  <div class="">
-    <%= link_to "New recipe", new_recipe_path, class: "btn-primary block font-medium" %>
-  </div>
+  <%= link_to new_recipe_path, class: "flex justify-between btn-primary font-medium" do %>
+    New Recipe
+    <%= render partial: "svgs/plus", locals: { classes: "" } %>
+  <% end %>
 
   <div id="recipes" class="min-w-full">
     <%= render @recipes %>
