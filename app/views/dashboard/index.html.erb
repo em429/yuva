@@ -18,8 +18,7 @@
           class="text-xl font-bold cursor-pointer"><%= category.title %></h2>
 
         <button class="font-black text-stone-600 " data-action="click->toggle-item-form#toggleForm" data-category-id="<%= category.id %>">
-        
-        <%= render partial: "svgs/plus", locals: { classes: "stroke-2" } %>
+          <%= render partial: "svgs/plus", locals: { classes: "stroke-2" } %>
         </button>
       </div>
       <%# END Category Title %>
