@@ -1,17 +1,29 @@
+<%# Long-press toggles stock, tap/click navigates to item page.
 
-<%# Container that listens to long-press and normal click events. %> 
-<%# Long press toggles stock, short goes to item page %>
+    The `long-press` event is not a built-in; it's an awesome and terse pure JavaScript library:
+    https://github.com/john-doherty/long-press-event
+
+    It is imported simply by placing the long-press-event.js file in app/assets/javascript and adding
+    a javascript_include_tag for 'long-press-event' in application.html.erb.
+
+    To change the delay, use the `data-long-press-delay` attribute.
+
+    ----
+
+    The animation is added by listening to turbo:before-stream-render. This is set-up in application.js.
+    To change the animation class, use `data-stream-enter-class` attribute.
+
+%>
 
  <turbo-frame 
     id="shopping-item-<%= item.id %>"
+    data-controller="shopping-item-actions"
+    data-shopping-item-actions-item-id="<%= item.id %>"
+    data-action="long-press->shopping-item-actions#toggle_stock
+                 click->shopping-item-actions#navigate_to_item_page"
+    data-long-press-delay="500"
     data-stream-enter-class="animate-wiggle-short"
-    data-controller="shopping-item-change"
-    data-shopping-item-change-shopping-item-id="<%= item.id %>"
-    data-shopping-item-change-long-press-duration-value="500"
-    <%# Why all these actions? This is to provide the long-press/short-press functionality, while still %>
-    <%# protecting against accidental presses while scrolling. %>
-    data-action="mousedown->shopping-item-change#startPress mousemove->shopping-item-change#movePress mouseup->shopping-item-change#endPress
-                touchstart->shopping-item-change#startPress touchmove->shopping-item-change#movePress touchend->shopping-item-change#endPress"
+
 
     class="
             <%= item.stock ? 'hover:shadow-lime-200 border-lime-300 bg-lime-100/60' : 'border-stone-300 bg-stone-200/60 hover:shadow-stone-200' %>
@@ -19,7 +31,6 @@
     
     <%# Item Title %>
     <div class="text-sm first-letter:text-lg first-letter:font-black first-letter:text-stone-700/80 select-none">
-        <%#= link_to item.title, item, target: "_top" %>
         <%= item.title %>
     </div>
 
