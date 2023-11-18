@@ -11,7 +11,7 @@
 </div>
 <% end %>
 
-<div data-toggle-item-form-target="form" id="form-<%= category.id %>" 
+<div data-toggle-hide-target="itemForm" id="form-<%= category.id %>" 
 class="<%= 'hidden' if hide_form %> mt-2 mb-4">
     <%= form_with(model: item, url: shopping_items_path, method: :post) do |form| %>
     <%= form.hidden_field :shopping_category_id, value: category.id %>

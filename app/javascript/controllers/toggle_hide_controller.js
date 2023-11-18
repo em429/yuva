@@ -2,10 +2,14 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="toggle-hide"
 export default class extends Controller {
-  static targets = ["triggered", "trigger"]
+  static targets = ["content", "itemForm"]
 
-  do() {
-    this.triggeredTarget.classList.toggle('hidden')
+  toggleContent() {
+    this.contentTarget.classList.toggle('hidden')
+  }
+
+  toggleForm() {
+    this.itemFormTarget.classList.toggle('hidden')
   }
 
 }

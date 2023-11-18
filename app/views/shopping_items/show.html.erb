@@ -11,7 +11,7 @@
 
     <div class="">
       <hr>
-      <%= link_to "Back", shopping_items_path, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to "Back", dashboard_path, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       <%= link_to "Edit", edit_shopping_item_path(@shopping_item), class: "ml-2 mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
       <div class="inline-block ml-2">
         <%= button_to "Delete", shopping_item_path(@shopping_item), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-red-100 font-medium" %>

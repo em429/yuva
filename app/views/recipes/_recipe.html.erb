@@ -3,7 +3,7 @@
 
   <div class="flex justify-between items-baseline">
 
-    <h2 data-toggle-hide-target="trigger" data-action="click->toggle-hide#do" class="text-xl font-bold cursor-pointer">
+    <h2 data-action="click->toggle-hide#toggleContent" class="text-xl font-bold cursor-pointer">
       <%= recipe.title %>
     </h2>
   
@@ -13,7 +13,7 @@
 
   </div>
 
-  <div data-toggle-hide-target="triggered" class="hidden">
+  <div data-toggle-hide-target="content" class="hidden">
     <p class="whitespace-pre-line">
       <%= recipe.description %>
     </p>
