@@ -25,7 +25,7 @@
         <% recipe.recipe_items.each do |ingredient| %>
           <% if ingredient.shopping_item.stock %>
             <li class="text-lime-500">
-              <%= button_to ingredient.shopping_item.title, ingredient.shopping_item, {class: "font-bold"} %>
+              <%= link_to ingredient.shopping_item.title, ingredient.shopping_item, {class: "font-bold"} %>
             </li>
           <% else %>
             <li class="text-red-500">
