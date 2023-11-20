@@ -28,3 +28,4 @@ Passcode.create(password: 'secret')
 For now, the category with `id=1` (the first we add) must be the cooking ingredients one, because when adding recipes, the multi-select filters for those items only — just so we don't end up with detergent on our pizza.
 
 ### Screenshots
+<img src="https://github.com/qirpi/yuva/blob/main/lib/assets/screenshot1.png" width="500">
