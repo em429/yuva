@@ -1,5 +1,6 @@
 <div data-controller="toggle-hide"
-    id="<%= dom_id recipe %>" class="p-3 my-4 rounded-xl bg-stone-100">
+    id="<%= dom_id recipe %>"
+    class="p-3 my-4 rounded-xl <%= recipe.is_everything_in_stock? ? 'bg-indigo-100' : 'bg-stone-100' %>">
 
   <div class="flex justify-between items-baseline">
 
