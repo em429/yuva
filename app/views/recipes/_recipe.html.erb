@@ -2,7 +2,7 @@
     id="<%= dom_id recipe %>"
     class="p-3 my-4 rounded-xl <%= recipe.is_everything_in_stock? ? 'bg-indigo-100' : 'bg-stone-100' %>">
 
-  <div class="flex justify-between items-baseline">
+  <div class="flex justify-between items-center">
 
     <h2 data-action="click->toggle-hide#toggleContent" class="text-xl font-bold cursor-pointer">
       <%= recipe.title %>
