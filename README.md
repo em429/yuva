@@ -6,7 +6,7 @@ This is a 'home inventory dashboard' for tracking items we ran out of and should
 
 There is also a recipes section where we can keep track of what can we cook with the ingredients we have right now, and what is missing.
 
-It's optimized for the touchscreen — long-press toggles an item's stock, a tap goes to it's page.
+It's optimized for the touchscreen — long-press toggles an item's stock, a tap navigates to it's page.
 
 ## Setup
 
