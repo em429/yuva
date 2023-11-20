@@ -15,6 +15,8 @@
 
 %>
 
+<% color = item.shopping_category.color %>
+
  <turbo-frame 
     id="shopping-item-<%= item.id %>"
     data-controller="shopping-item-actions"
@@ -25,9 +27,9 @@
     data-stream-enter-class="animate-wiggle-short"
 
 
-    class="
-            <%= item.stock ? 'hover:shadow-lime-200 border-lime-300 bg-lime-100/60' : 'border-stone-300 bg-stone-200/60 hover:shadow-stone-200' %>
-            relative px-2 py-2 grow cursor-pointer selecet-none border text-center rounded-xl shadow hover:shadow-md  text-stone-400">
+    class=" relative px-2 py-2 grow cursor-pointer selecet-none border text-center rounded-xl text-stone-400
+            <%= item.stock ? "border-#{color}-300 bg-#{color}-100/60 hover:shadow-#{color}-200 shadow-#{color}-100" : 'border-stone-300 bg-stone-200/60 hover:shadow-stone-200' %>
+            shadow shadow-<%= color %>-100 hover:shadow-md">
     
     <%# Item Title %>
     <div class="text-sm first-letter:text-lg first-letter:font-black first-letter:text-stone-700/80 select-none">
@@ -38,8 +40,8 @@
 
         <%# "Cut out" bottom left corner if the item has a note %>
         <% if item.notes.present? %>
-            <span class="absolute bottom-0 text-transparent left-0 ml-[-1px] px-1 border rounded-tr-2xl rounded-bl-xl text-xs
-                  shadow shadow-inner <%= item.stock ? "shadow-lime-500" : "shadow-stone-400" %>" >
+            <span class="absolute bottom-0 text-transparent left-0 ml-[-1px] px-1  rounded-tr-2xl rounded-bl-xl text-xs
+                  shadow shadow-inner <%= item.stock ? "shadow-#{color}-400" : "shadow-stone-400" %>" >
             n
             </span>
         <% end %>

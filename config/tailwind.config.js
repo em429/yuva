@@ -10,6 +10,7 @@ module.exports = {
   // To use dynamic classes in our ERB templates, we must safelist them here, otherwise the compiler
   // won't generate the styles for them.
   safelist: [
+    // This is for ShoppingItem backgrounds
     'bg-stone-100/60',
     'bg-red-100/60',
     'bg-orange-100/60',
@@ -28,7 +29,7 @@ module.exports = {
     'bg-fuchsia-100/60',
     'bg-pink-100/60',
     'bg-rose-100/60',
-
+    // This is for ShoppingItem borders
     'border-stone-300',
     'border-red-300',
     'border-orange-300',
@@ -47,7 +48,26 @@ module.exports = {
     'border-fuchsia-300',
     'border-pink-300',
     'border-rose-300',
-
+    // This is for regular shadows
+    'shadow-stone-100',
+    'shadow-red-100',
+    'shadow-orange-100',
+    'shadow-amber-100',
+    'shadow-yellow-100',
+    'shadow-lime-100',
+    'shadow-green-100',
+    'shadow-emerald-100',
+    'shadow-teal-100',
+    'shadow-cyan-100',
+    'shadow-sky-100',
+    'shadow-blue-100',
+    'shadow-indigo-100',
+    'shadow-violet-100',
+    'shadow-purple-100',
+    'shadow-fuchsia-100',
+    'shadow-pink-100',
+    'shadow-rose-100',
+    ////
     'shadow-stone-200',
     'shadow-red-200',
     'shadow-orange-200',
@@ -66,7 +86,7 @@ module.exports = {
     'shadow-fuchsia-200',
     'shadow-pink-200',
     'shadow-rose-200',
-
+    ////
     'hover:shadow-stone-200',
     'hover:shadow-red-200',
     'hover:shadow-orange-200',
@@ -86,6 +106,25 @@ module.exports = {
     'hover:shadow-pink-200',
     'hover:shadow-rose-200',
 
+    // This is for the 'cut-out' inner shadows on items, so no need for hover here:
+    'shadow-stone-400',
+    'shadow-red-400',
+    'shadow-orange-400',
+    'shadow-amber-400',
+    'shadow-yellow-400',
+    'shadow-lime-400',
+    'shadow-green-400',
+    'shadow-emerald-400',
+    'shadow-teal-400',
+    'shadow-cyan-400',
+    'shadow-sky-400',
+    'shadow-blue-400',
+    'shadow-indigo-400',
+    'shadow-violet-400',
+    'shadow-purple-400',
+    'shadow-fuchsia-400',
+    'shadow-pink-400',
+    'shadow-rose-400',
   ],
   theme: {
     extend: {
