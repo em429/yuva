@@ -6,9 +6,9 @@
   <div class="mt-4">
     <div class="inline-block">
       <%= button_to "Delete", recipe_path(@recipe), method: :delete, data: { turbo_confirm: "Are you sure?" },
-      class: "rounded-lg py-3 px-5 bg-red-100 inline-block font-medium" %>
+      class: "btn-secondary bg-red-100" %>
     </div>
-    <%= link_to "Back to recipes", recipes_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Back", recipes_path, class: "ml-2 btn-secondary" %>
   </div>
 
 </div>

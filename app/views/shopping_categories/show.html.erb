@@ -9,10 +9,11 @@
 
     <%= render @shopping_category %>
 
-    <%= link_to "Edit this shopping_category", edit_shopping_category_path(@shopping_category), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit", edit_shopping_category_path(@shopping_category), class: "btn-secondary" %>
+    <%= link_to "Back", shopping_categories_path, class: "ml-2 btn-secondary" %>
     <div class="inline-block ml-2">
-      <%= button_to "Destroy this shopping_category", shopping_category_path(@shopping_category), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <%= button_to "Delete", shopping_category_path(@shopping_category), method: :delete, data: { turbo_confirm: "Are you sure?" },
+       class: "bg-red-100 btn-secondary" %>
     </div>
-    <%= link_to "Back to shopping_categories", shopping_categories_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>

@@ -1,8 +1,10 @@
 <div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing shopping category</h1>
 
   <%= render "form", shopping_category: @shopping_category %>
 
-  <%= link_to "Show this shopping category", @shopping_category, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to shopping categories", shopping_categories_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to "Back", shopping_categories_path, class: "ml-2 btn-secondary" %>
+  <div class="inline-block ml-2">
+  <%= button_to "Delete", shopping_category_path(@shopping_category), method: :delete, data: { turbo_confirm: "Are you sure?" },
+    class: "bg-red-100 btn-secondary" %>
+</div>
 </div>
