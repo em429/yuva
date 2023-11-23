@@ -31,11 +31,6 @@
     <%= form.text_area :notes, rows: 4, class: "block shadow rounded-md border border-stone-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :importance %>
-    <%= form.number_field :importance, class: "block shadow rounded-md border border-stone-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
   <div class="flex">
     <%= button_tag class: "btn-primary" do %>
       <%= render partial: "svgs/check_circle", locals: { classes: "" } %>

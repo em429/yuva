@@ -2,16 +2,14 @@
 
 one:
   title: MyString
-  status: 1
+  status: true
   shopping_category: one
   notes: MyText
-  importance: 1
   unit: MyString
 
 two:
   title: MyString
-  status: 1
+  status: false
   shopping_category: two
   notes: MyText
-  importance: 1
   unit: MyString

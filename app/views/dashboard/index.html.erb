@@ -34,7 +34,7 @@
         <div data-toggle-hide-target="content" id="shopping-items-<%= category.id %>"
               class="flex flex-wrap gap-2">
           
-          <%# Sort items first by stock, then by importance %>
+          <%# Sort items by stock %>
           <% category.shopping_items.order(stock: :asc).each do |item| %>
             <%= render partial: "dashboard/shopping_item", locals: { item: item } %>
            <% end %>   

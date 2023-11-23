@@ -14,7 +14,6 @@ class ShoppingItemsTest < ApplicationSystemTestCase
     visit shopping_items_url
     click_on "New shopping item"
 
-    fill_in "Importance", with: @shopping_item.importance
     fill_in "Notes", with: @shopping_item.notes
     fill_in "Shopping category", with: @shopping_item.shopping_category_id
     fill_in "Status", with: @shopping_item.status
@@ -30,7 +29,6 @@ class ShoppingItemsTest < ApplicationSystemTestCase
     visit shopping_item_url(@shopping_item)
     click_on "Edit this shopping item", match: :first
 
-    fill_in "Importance", with: @shopping_item.importance
     fill_in "Notes", with: @shopping_item.notes
     fill_in "Shopping category", with: @shopping_item.shopping_category_id
     fill_in "Status", with: @shopping_item.status
