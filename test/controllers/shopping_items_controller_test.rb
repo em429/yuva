@@ -17,7 +17,7 @@ class ShoppingItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create shopping_item" do
     assert_difference("ShoppingItem.count") do
-      post shopping_items_url, params: { shopping_item: { importance: @shopping_item.importance, notes: @shopping_item.notes, shopping_category_id: @shopping_item.shopping_category_id, status: @shopping_item.status, title: @shopping_item.title, unit: @shopping_item.unit } }
+      post shopping_items_url, params: { shopping_item: { notes: @shopping_item.notes, shopping_category_id: @shopping_item.shopping_category_id, status: @shopping_item.status, title: @shopping_item.title, unit: @shopping_item.unit } }
     end
 
     assert_redirected_to shopping_item_url(ShoppingItem.last)
@@ -34,7 +34,7 @@ class ShoppingItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update shopping_item" do
-    patch shopping_item_url(@shopping_item), params: { shopping_item: { importance: @shopping_item.importance, notes: @shopping_item.notes, shopping_category_id: @shopping_item.shopping_category_id, status: @shopping_item.status, title: @shopping_item.title, unit: @shopping_item.unit } }
+    patch shopping_item_url(@shopping_item), params: { shopping_item: { notes: @shopping_item.notes, shopping_category_id: @shopping_item.shopping_category_id, status: @shopping_item.status, title: @shopping_item.title, unit: @shopping_item.unit } }
     assert_redirected_to shopping_item_url(@shopping_item)
   end
 
