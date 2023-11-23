@@ -1,9 +1,10 @@
-<div id="<%= dom_id shopping_category %>">
+<div id="<%= dom_id shopping_category %>" class="mx-auto min-w-[400px]">
 
   <div class="flex justify-between items-center">
     <h2 class="my-5 text-xl font-bold">
-      <%= shopping_category.title %>
+      <%= link_to shopping_category.title, shopping_category %>
     </h2>
+
     <span class="p-1 border text-stone-500 text-xl shadow hover:shadow-md rounded-lg
            bg-<%= shopping_category.color %>-100/60 border-<%= shopping_category.color %>-300
            shadow-<%= shopping_category.color %>-100 hover:shadow-<%= shopping_category.color %>-200
