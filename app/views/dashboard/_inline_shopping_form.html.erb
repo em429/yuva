@@ -32,7 +32,9 @@ class="<%= 'hidden' if hide_form %> mt-2 mb-4">
         </div>
 
         <div class="mt-6 ml-2">
-            <%= form.submit "Add", class: "btn-primary text-xs" %>
+            <%= button_tag class: "btn-primary !p-1" do %>
+                <%= render partial: "svgs/check_circle", locals: { classes: "!w-5" } %>
+            <% end%>
         </div>
 
     </div>

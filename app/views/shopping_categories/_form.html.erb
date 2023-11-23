@@ -39,6 +39,9 @@
   </div>
 
   <div class="inline">
-    <%= form.submit "Submit", class: "btn-primary" %>
+    <%= button_tag class: "btn-primary" do %>
+      <%= render partial: "svgs/check_circle", locals: { classes: "" } %>
+    <% end %>
   </div>
+
 <% end %>

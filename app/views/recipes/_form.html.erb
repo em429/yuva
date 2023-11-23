@@ -21,18 +21,20 @@
     <%= form.text_area :description, rows: 10, class: "field mt-2 w-full" %>
   </div>
 
-    <div class="my-5">
-      <%= form.label :shopping_item_ids, "Ingredients" %>
-      <%= form.select :shopping_item_ids,
-        ShoppingItem.cooking_ingredients.collect { |i| [ i.title, i.id ] },
-        {}, {data: {controller: "slim-select"}, multiple: true, class: "mt-2 !border-stone-200 h-10"}
-      %>
-    </div>
-
-
-  <div class="inline">
-    <%= form.submit class: "btn-primary cursor-pointer" %>
+  <div class="my-5">
+    <%= form.label :shopping_item_ids, "Ingredients" %>
+    <%= form.select :shopping_item_ids,
+      ShoppingItem.cooking_ingredients.collect { |i| [ i.title, i.id ] },
+      {}, {data: {controller: "slim-select"}, multiple: true, class: "mt-2 !border-stone-200 h-10"}
+    %>
   </div>
+
+  <div class="flex space-x-2 ">
+    <%= button_tag class: "btn-primary cursor-pointer" do %>
+      <%= render partial: "svgs/check_circle", locals: { classes: "" } %>
+    <% end %>
+  </div>
+
 <% end %>
 
 

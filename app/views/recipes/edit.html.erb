@@ -3,12 +3,13 @@
 
   <%= render "form", recipe: @recipe %>
 
-  <div class="mt-4">
-    <div class="inline-block">
-      <%= button_to "Delete", recipe_path(@recipe), method: :delete, data: { turbo_confirm: "Are you sure?" },
-      class: "btn-secondary bg-red-100" %>
-    </div>
-    <%= link_to "Back", recipes_path, class: "ml-2 btn-secondary" %>
+  <div class="mt-2 flex space-x-2">
+    <%= link_to recipes_path, class: "btn-secondary" do %>
+      <%= render partial: "svgs/arrow_left_circle", locals: { classes: "" } %>
+    <% end %>
+    <%= button_to recipe_path(@recipe), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn-secondary bg-red-100" do %>
+        <%= render partial: "svgs/trash", locals: { classes: "" } %>
+    <% end %>
   </div>
 
 </div>

@@ -24,8 +24,10 @@
   </p>
 
   <% if action_name != "show" %>
-    <%= link_to "Show", shopping_category, class: "btn-secondary inline-block" %>
-    <%= link_to "Edit", edit_shopping_category_path(shopping_category), class: "btn-secondary inline-block" %>
+    <%= link_to edit_shopping_category_path(shopping_category), class: "btn-secondary inline-block" do %>
+      <%= render partial: "svgs/pencil", locals: { classes: "" } %>
+    <% end %>
     <hr class="mt-6">
   <% end %>
+
 </div>

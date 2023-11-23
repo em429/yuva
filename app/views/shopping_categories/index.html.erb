@@ -7,7 +7,9 @@
   <% end %>
 
   <div class="">
-    <%= link_to "New", new_shopping_category_path, class: "btn-primary font-medium" %>
+    <%= link_to new_shopping_category_path, class: "btn-primary" do %>
+      <%= render partial: "svgs/plus_document", locals: { classes: "" } %>
+    <% end %>
   </div>
 
   <div id="shopping_categories" class="min-w-full">

@@ -8,12 +8,20 @@
     <% end %>
 
     <%= render @shopping_category %>
+    <div class="flex space-x-2">
+      <%= link_to shopping_categories_path, class: "btn-secondary" do %>
+          <%= render partial: "svgs/arrow_left_circle", locals: { classes: "" } %>
+      <% end %>
 
-    <%= link_to "Edit", edit_shopping_category_path(@shopping_category), class: "btn-secondary" %>
-    <%= link_to "Back", shopping_categories_path, class: "ml-2 btn-secondary" %>
-    <div class="inline-block ml-2">
-      <%= button_to "Delete", shopping_category_path(@shopping_category), method: :delete, data: { turbo_confirm: "Are you sure?" },
-       class: "bg-red-100 btn-secondary" %>
+      <%= link_to edit_shopping_category_path(@shopping_category), class: "btn-secondary" do %>
+          <%= render partial: "svgs/pencil", locals: { classes: "" } %>
+      <% end %>
+
+      <%= button_to shopping_category_path(@shopping_category), method: :delete, data: { turbo_confirm: "Are you sure?" },
+       class: "bg-red-100 btn-secondary" do %>
+          <%= render partial: "svgs/trash", locals: { classes: "" } %>
+       <% end %>
     </div>
+
   </div>
 </div>

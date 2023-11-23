@@ -12,14 +12,14 @@
       <%# Category Title with toggle %>
       <div
         class="mb-4 px-5 mx-[-10px] py-2 space-x-2 flex justify-between
-        shadow-md shadow-stone-200 border-t-2 border-stone-400 bg-stone-50">
+        shadow-md shadow-stone-200 border-t border-<%= category.color %>-300 bg-stone-50 rounded-xl">
 
           <h2 data-action="click->toggle-hide#toggleContent" class="text-xl font-bold cursor-pointer">
             <%= category.title %>
           </h2>
 
-        <button class="font-black text-stone-600 " data-action="click->toggle-hide#toggleForm" data-category-id="<%= category.id %>">
-          <%= render partial: "svgs/plus", locals: { classes: "stroke-2" } %>
+        <button class="text-stone-600 " data-action="click->toggle-hide#toggleForm" data-category-id="<%= category.id %>">
+          <%= render partial: "svgs/plus_circle", locals: { classes: "" } %>
         </button>
       </div>
       <%# END Category Title %>
