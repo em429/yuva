@@ -6,7 +6,7 @@
     <%= link_to shopping_categories_path, class: "btn-secondary" do %>
       <%= render partial: "svgs/arrow_left_circle", locals: { classes: "" } %>
     <% end %>
-    <%= button_to shopping_category_path(@shopping_category), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "bg-red-100 btn-secondary" do %>
+    <%= button_to shopping_category_path(@shopping_category), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn-danger" do %>
       <%= render partial: "svgs/trash", locals: { classes: "" } %>
     <% end %>
   </div>

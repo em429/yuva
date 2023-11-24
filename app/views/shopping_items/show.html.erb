@@ -20,7 +20,7 @@
       <% end %>
 
       <%= button_to shopping_item_path(@shopping_item), method: :delete, data: { turbo_confirm: "Are you sure?" },
-      class: "ml-2 btn-secondary bg-red-100" do %>
+      class: "ml-2 btn-danger" do %>
         <%= render partial: "svgs/trash", locals: { classes: "" } %>
       <% end %>
     </div>

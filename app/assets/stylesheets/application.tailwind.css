@@ -27,15 +27,32 @@
   label { @apply text-sm;}
 
   .field {
-    @apply block shadow rounded-md border border-stone-200 focus:ring-0 focus:border-stone-400 px-3 py-2;
+    @apply block shadow shadow-stone-200 rounded-md border border-stone-200 focus:ring-0 focus:border-stone-400 px-3 py-2;
   }
 
+  input[type='checkbox'] {
+    @apply text-stone-400;
+   }
+
   .btn-primary {
-    @apply py-2 px-4 bg-violet-200 rounded-md inline-block;
+    @apply  inline-block py-2 px-4 rounded-md
+            bg-violet-200 text-violet-600
+            border border-violet-300
+            shadow shadow-violet-200 hover:shadow-md hover:shadow-violet-200;
   }
 
   .btn-secondary {
-    @apply py-2 px-4 bg-stone-200 rounded-md inline-block;
+    @apply  inline-block py-2 px-4 rounded-md 
+            bg-stone-200 text-stone-600
+            border border-stone-300
+            shadow shadow-stone-200 hover:shadow-md hover:shadow-stone-200;
+  }
+
+  .btn-danger {
+    @apply  inline-block py-2 px-4 rounded-md
+            bg-rose-200 text-rose-700
+            border border-rose-300
+            shadow shadow-rose-200 hover:shadow-md hover:shadow-rose-200;
   }
 
   .flash_danger {
