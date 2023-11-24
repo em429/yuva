@@ -6,11 +6,10 @@
     </div>
   <% end %>
 
-  <div class="">
-    <%= link_to new_shopping_category_path, class: "btn-primary" do %>
-      <%= render partial: "svgs/plus_document", locals: { classes: "" } %>
-    <% end %>
-  </div>
+  <%= link_to new_shopping_category_path, class: "px-3 btn-primary flex justify-between rounded-xl font-medium" do %>
+    New Category
+    <%= render partial: "svgs/plus_document", locals: { classes: "" } %>
+  <% end %>
 
   <div id="shopping_categories" class="min-w-full">
     <%= render @shopping_categories %>
