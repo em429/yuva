@@ -34,10 +34,11 @@
         <div data-toggle-hide-target="content" id="shopping-items-<%= category.id %>"
               class="flex flex-wrap gap-2">
           
-          <%# Sort items by stock %>
-          <% category.shopping_items.order(stock: :asc).each do |item| %>
+          <%# Sort items so out of stock is always on the front, while both out of stock
+              and in stock are in alphabetical order. %>
+          <% category.shopping_items.order("stock ASC, title ASC").each do |item| %>
             <%= render partial: "dashboard/shopping_item", locals: { item: item } %>
-           <% end %>   
+          <% end %>   
         </div>
 
       </div>
