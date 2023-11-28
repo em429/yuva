@@ -26,13 +26,12 @@
     data-long-press-delay="500"
     data-stream-enter-class="animate-wiggle-short"
 
-
-    class=" relative px-2 py-2 grow cursor-pointer selecet-none border text-center rounded-xl text-stone-400
-            <%= item.stock ? "border-#{color}-300 bg-#{color}-100/80 hover:shadow-#{color}-200 shadow-#{color}-100" : 'border-stone-300 bg-stone-100/80 shadow-stone-200' %>
-            shadow hover:shadow-md">
+    class="relative px-2 py-2 grow cursor-pointer selecet-none border text-center rounded-xl
+    <%= item.stock ? "text-#{color}-900/80 border-#{color}-300 bg-#{color}-100/80 hover:shadow-#{color}-200 shadow-#{color}-100" : 'text-stone-400 border-stone-300 bg-stone-100/80 shadow-stone-200' %>
+    shadow hover:shadow-md">
     
     <%# Item Title %>
-    <div class="text-sm first-letter:text-lg first-letter:font-black first-letter:text-stone-700/80 select-none">
+    <div class="text-sm first-letter:text-lg first-letter:font-black select-none">
         <%= item.title %>
     </div>
 
