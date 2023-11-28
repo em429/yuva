@@ -1,6 +1,6 @@
 <div data-controller="toggle-hide"
     id="<%= dom_id recipe %>"
-    class="p-3 my-4 rounded-xl <%= recipe.is_everything_in_stock? ? 'bg-indigo-100' : 'bg-stone-100' %>">
+    class="p-3 my-4 rounded-xl <%= recipe.is_everything_in_stock? ? 'bg-violet-200' : 'bg-stone-200' %>">
 
   <div class="flex justify-between items-center">
 
@@ -24,12 +24,12 @@
       <ul class="list-disc pl-5">
         <% recipe.recipe_items.each do |ingredient| %>
           <% if ingredient.shopping_item.stock %>
-            <li class="text-lime-500">
+            <li class="text-violet-500">
               <%= link_to ingredient.shopping_item.title, ingredient.shopping_item, {class: "font-bold"} %>
             </li>
           <% else %>
-            <li class="text-red-500">
-              <%= link_to ingredient.shopping_item.title, ingredient.shopping_item, {class: ""} %>
+            <li class="text-stone-400">
+              <%= link_to ingredient.shopping_item.title, ingredient.shopping_item, {class: "text-stone-500"} %>
             </li>
           <% end %>
         <% end %>
