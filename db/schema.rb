@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_23_235345) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_05_175412) do
+  create_table "habit_completions", force: :cascade do |t|
+    t.integer "habit_id", null: false
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["habit_id", "date"], name: "index_habit_completions_on_habit_id_and_date", unique: true
+    t.index ["habit_id"], name: "index_habit_completions_on_habit_id"
+  end
+
+  create_table "habits", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "passcodes", force: :cascade do |t|
     t.string "password_digest"
     t.datetime "created_at", null: false
@@ -61,6 +76,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_235345) do
     t.index ["title"], name: "index_shopping_items_on_title", unique: true
   end
 
+  add_foreign_key "habit_completions", "habits"
   add_foreign_key "recipe_items", "recipes"
   add_foreign_key "recipe_items", "shopping_items"
   add_foreign_key "shopping_items", "shopping_categories"

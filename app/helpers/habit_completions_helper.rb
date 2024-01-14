@@ -1,0 +1,2 @@
+module HabitCompletionsHelper
+end

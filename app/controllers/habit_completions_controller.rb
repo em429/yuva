@@ -1,0 +1,2 @@
+class HabitCompletionsController < ApplicationController
+end

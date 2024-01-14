@@ -1,0 +1,40 @@
+<div data-controller="habit-actions"
+    data-long-press-delay="300"
+    class="w-full">
+
+  <% if notice.present? %>
+    <div class="flash_notice" id="notice">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <%# Add new Habit form %>
+  <h1 class="mt-10 text-xl font-bold">Add new habit</h1>
+  <%= form_with(model: Habit.new, class: "contents") do |form| %>
+    <div class="my-5">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "block shadow rounded-md border border-stone-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="flex">
+        <%= button_tag class: "btn-primary" do %>
+        <%= render partial: "svgs/check_circle", locals: { classes: "" } %>
+        <% end %>
+    </div>
+  <% end %>
+
+  <%# Habit list %>
+  <h1 class="mt-10 mb-5 text-2xl font-bold">Habits</h1>
+  <% @habits.each do |habit| %>
+
+    <div class="flex justify-between items-baseline">
+      <span class="text-lg"><%= habit.name %></span>
+    </div>
+
+    <turbo-frame id="habit_completions_<%= habit.id%>">
+      <%= render 'habit_completions', habit: habit, dates: @dates %>
+    </turbo-frame>
+
+  <% end %>
+
+</div>

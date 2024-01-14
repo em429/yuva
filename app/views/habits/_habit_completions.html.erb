@@ -1,0 +1,26 @@
+<div class="flex flex-wrap">
+    <% dates.each do |date| %>
+        <% if habit.habit_completions.where(date: date).exists? %>
+            <div 
+            data-habit-actions-habit-id="<%= habit.id %>"
+            data-habit-actions-date="<%= date %>"
+            data-action="long-press->habit-actions#toggle_completion"
+            class="text-xs h-8 w-8 shadow shadow-lime-100 border border-lime-300 bg-lime-200">
+            </div>
+        <% elsif date == Date.today %>
+            <div 
+            data-habit-actions-habit-id="<%= habit.id %>"
+            data-habit-actions-date="<%= date %>"
+            data-action="long-press->habit-actions#toggle_completion"
+            class="h-8 w-8 shadow shadow-inner border border-stone-200">
+            </div>
+        <% else %>
+            <div 
+            data-habit-actions-habit-id="<%= habit.id %>"
+            data-habit-actions-date="<%= date %>"
+            data-action="long-press->habit-actions#toggle_completion"
+            class="h-8 w-8 shadow shadow-inner border border-stone-200 bg-stone-100">
+            </div>
+        <% end %>
+    <% end %>
+</div>
