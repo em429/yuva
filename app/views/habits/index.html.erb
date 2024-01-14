@@ -9,19 +9,11 @@
   <% end %>
 
   <%# Add new Habit form %>
-  <h1 class="mt-10 text-xl font-bold">Add new habit</h1>
-  <%= form_with(model: Habit.new, class: "contents") do |form| %>
-    <div class="my-5">
-        <%= form.label :name %>
-        <%= form.text_field :name, class: "block shadow rounded-md border border-stone-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-
-    <div class="flex">
-        <%= button_tag class: "btn-primary" do %>
-        <%= render partial: "svgs/check_circle", locals: { classes: "" } %>
-        <% end %>
-    </div>
+  <%= link_to new_habit_path, class: "flex mt-4 mb-8 px-3 justify-between btn-primary rounded-xl font-medium" do %>
+    New Habit
+    <%= render partial: "svgs/plus_circle", locals: { classes: "" } %>
   <% end %>
+
 
   <%# Habit list %>
   <% @habits.each do |habit| %>
