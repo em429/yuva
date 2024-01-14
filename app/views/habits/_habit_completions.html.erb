@@ -5,21 +5,21 @@
             data-habit-actions-habit-id="<%= habit.id %>"
             data-habit-actions-date="<%= date %>"
             data-action="long-press->habit-actions#toggle_completion"
-            class="text-xs h-8 w-8 shadow shadow-lime-100 border border-lime-300 bg-lime-200">
+            class="h-8 w-8 mt-1 rounded shadow-md shadow-lime-200 border border-lime-400 bg-lime-200">
             </div>
         <% elsif date == Date.today %>
             <div 
             data-habit-actions-habit-id="<%= habit.id %>"
             data-habit-actions-date="<%= date %>"
             data-action="long-press->habit-actions#toggle_completion"
-            class="h-8 w-8 shadow shadow-inner border border-stone-200">
+            class="h-8 w-8 mt-2 rounded shadow-inner shadow-amber-300 border border-amber-200 bg-white">
             </div>
         <% else %>
             <div 
             data-habit-actions-habit-id="<%= habit.id %>"
             data-habit-actions-date="<%= date %>"
             data-action="long-press->habit-actions#toggle_completion"
-            class="h-8 w-8 shadow shadow-inner border border-stone-200 bg-stone-100">
+            class="h-8 w-8 mt-2 rounded bg-indigo-50 border border-indigo-100 shadow-inner shadow-indigo-200">
             </div>
         <% end %>
     <% end %>

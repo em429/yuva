@@ -24,16 +24,17 @@
   <% end %>
 
   <%# Habit list %>
-  <h1 class="mt-10 mb-5 text-2xl font-bold">Habits</h1>
   <% @habits.each do |habit| %>
 
-    <div class="flex justify-between items-baseline">
-      <span class="text-lg"><%= habit.name %></span>
-    </div>
+    <div class="p-5 mt-8 border border-indigo-300 rounded bg-indigo-50">
+      <div class="mb-2 flex justify-between items-baseline">
+        <span class="text-2xl smallcaps font-bold text-indigo-600"><%= habit.name %></span>
+      </div>
 
-    <turbo-frame id="habit_completions_<%= habit.id%>">
-      <%= render 'habit_completions', habit: habit, dates: @dates %>
-    </turbo-frame>
+      <turbo-frame id="habit_completions_<%= habit.id%>">
+        <%= render 'habit_completions', habit: habit, dates: @dates %>
+      </turbo-frame>
+    </div>
 
   <% end %>
 
