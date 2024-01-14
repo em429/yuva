@@ -37,7 +37,7 @@
           <%# Sort items so out of stock is always on the front, while both out of stock
               and in stock are in alphabetical order. %>
           <% category.shopping_items.order("stock ASC, title ASC").each do |item| %>
-            <%= render partial: "dashboard/shopping_item", locals: { item: item } %>
+            <%= render partial: "home/shopping_item", locals: { item: item } %>
           <% end %>   
         </div>
 

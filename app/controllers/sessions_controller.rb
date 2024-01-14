@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     passcode = Passcode.first
     if passcode && passcode.authenticate(params[:password])
       session[:passcode_id] = passcode.id
-      redirect_to dashboard_path
+      redirect_to home_path
     else
       flash.now[:danger] = 'Invalid passcode'
       render :new, status: :unprocessable_entity

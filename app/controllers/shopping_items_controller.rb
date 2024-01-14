@@ -9,11 +9,11 @@ class ShoppingItemsController < ApplicationController
       respond_to do |format|
         format.turbo_stream do
           render turbo_stream: turbo_stream.replace("shopping-item-#{@item.id}",
-                partial: "dashboard/shopping_item",
+                partial: "home/shopping_item",
                 status: :ok,
                 locals: { item: @item })
         end
-        format.html { redirect_to dashboard_path }
+        format.html { redirect_to home_path }
       end
     end
   end
@@ -46,12 +46,12 @@ class ShoppingItemsController < ApplicationController
         format.turbo_stream do
           render turbo_stream: [
             turbo_stream.replace("form-#{category.id}",
-                                partial: "dashboard/inline_shopping_form",
+                                partial: "home/inline_shopping_form",
                                 locals: { item: ShoppingItem.new,
                                           category: category,
                                           hide_form: false }),
             turbo_stream.prepend("shopping-items-#{category.id}",
-                                partial: "dashboard/shopping_item",
+                                partial: "home/shopping_item",
                                 locals: { item: @shopping_item })
           ]
 
@@ -62,7 +62,7 @@ class ShoppingItemsController < ApplicationController
       else
         format.turbo_stream do
           render turbo_stream: turbo_stream.replace("form-#{category.id}",
-                                                    partial: "dashboard/inline_shopping_form",
+                                                    partial: "home/inline_shopping_form",
                                                     locals: { item: @shopping_item,
                                                               category: category,
                                                               hide_form: false })

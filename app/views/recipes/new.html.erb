@@ -6,7 +6,7 @@
 
   <div class="mt-6 mb-20">
     <h2 class="font-bold text-xl">Add new items</h1>
-    <%= render partial: "dashboard/inline_shopping_form",
+    <%= render partial: "home/inline_shopping_form",
     locals: { category: ShoppingCategory.cooking_ingredients[0],
     item: ShoppingItem.new,
     hide_form: false } %>

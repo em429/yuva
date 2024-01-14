@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  get 'dashboard', to: 'dashboard#index'
+  get 'home', to: 'home#index'
 
   resources :recipes, except: [ :show ]
 
@@ -30,5 +30,5 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  root "dashboard#index"
+  root "home#index"
 end
