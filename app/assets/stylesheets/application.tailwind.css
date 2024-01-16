@@ -5,6 +5,18 @@
 
 @layer components {
 
+  .tooltip {
+    @apply invisible absolute
+    p-2 ml-[-30px] mt-[-41px]
+    rounded shadow-lg
+    border border-indigo-200 bg-indigo-100
+    text-sm text-indigo-500;
+  }
+  
+  .has-tooltip:hover .tooltip {
+    @apply visible z-50
+  }
+
   /* This is a clever custom style for the scratchpad textarea to display notepad like horizontal lines */
   .scratchpad {
     background-attachment: local;
